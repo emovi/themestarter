@@ -1,0 +1,90 @@
+<svg id="definesvg">
+	<defs>
+		<!-- Filtro snmCarved -->
+	    <filter id="snmCarved">
+	      <!-- InnerShadowBlack. Offseteo el SourceAlpha 5 y 5 -->
+	      <feOffset in="SourceAlpha" dx="5" dy="5" result="figuraoffseteada"/>
+	      <!-- Garantizo que sea negra -->
+	      <feFlood flood-color="#000000" flood-opacity="1" result="elFlood" />
+	      <feComposite in="elFlood" in2="figuraoffseteada" operator="in" result="lanegra" />
+	      <!-- Obtengo la sombra Interna -->
+	      <feComposite in="SourceAlpha" in2="lanegra" operator="out" result="elInnerShadow" />
+	      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="elBlurblanco" />
+	      <feFlood flood-color="#FFFFFF" flood-opacity="0.15" result="elFloodBlanco" />
+	      <feComposite in="elFloodBlanco" in2="elBlurblanco" operator="in" result="elbrilloblanco" />
+	      <feComposite in2="SourceGraphic" in="elbrilloblanco" operator="out" result="white_glow" />
+	      <feMerge>
+	        <feMergeNode in="elInnerShadow" />
+	        <feMergeNode in="white_glow" />
+	      </feMerge>
+	    </filter>
+		<!-- Gradiente Carved Effect -->
+		<linearGradient id="carvedgrad" x1="0.25" y1="0" x2="0.75" y2="1">
+			<stop offset="0" stop-color="#000000" stop-opacity="0.35"/>
+			<stop offset="1" stop-color="#000000" stop-opacity="0.1"/>
+		</linearGradient>
+		<linearGradient id="carvedgradBlue" x1="0.25" y1="0" x2="0.75" y2="1">
+			<stop offset="0" stop-color="#1C5795" stop-opacity="0.35"/>
+			<stop offset="1" stop-color="#154272" stop-opacity="0.35"/>
+		</linearGradient>
+		<filter id="SombraCaidaBlanca">
+			<feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+			<feOffset dx="4" dy="4" result="offsetblur"/>
+			<feFlood flood-color="#FFFFFF"/>
+			<feComposite in2="offsetblur" operator="in"/>
+		</filter>
+		<linearGradient id="Gradiente_interno" gradientUnits="objectBoundingBox" x1="0.5" y1="1" x2="0.5" y2="0">
+			<stop offset="0" stop-color="#000000" stop-opacity="0.2"/>
+			<stop offset="1" stop-color="#000000" stop-opacity="0.5"/>
+		</linearGradient>
+		<filter id="InnerShadow_carved">
+			<feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/>
+			<feOffset dx="4" dy="4" result="offsetblur"/>
+			<feFlood flood-color="#000000"/>
+			<feComposite in2="offsetblur" operator="in"/>
+		</filter>
+	</defs>
+	<symbol id="instagramsvg" viewBox="0 0 200 200">
+		<path data-id="camarilla" fill-opacity="0" stroke-width="18" d="M56.223,9.5 L144.777,9.5 C170.581,9.5 191.5,30.419 191.5,56.223 L191.5,144.777 C191.5,170.581 170.581,191.5 144.777,191.5 L56.223,191.5 C30.419,191.5 9.5,170.581 9.5,144.777 L9.5,56.223 C9.5,30.419 30.419,9.5 56.223,9.5 z" />
+	    <circle data-id="mirilla" cx="153.5" cy="46.5" r="12.5" />
+	    <circle data-id="lentecillo" fill-opacity="0" stroke-width="18" cx="100" cy="100" r="42.5" />
+	</symbol>
+	<symbol id="youtubesvg" viewBox="0 0 285 200">
+		<path data-id="ytbpath" d="M115.098,142.857 L115.098,57.523 C139.873,71.781 164.414,85.893 189.279,100.196 C164.403,114.498 139.873,128.622 115.098,142.857 M279.646,34.57 C275.535,18.522 261.938,6.166 248.352,4.935 C234.765,3.704 192.337,0 142.506,0 C92.674,0 50.246,3.704 36.66,4.935 C23.062,6.166 9.465,18.522 5.354,34.57 C1.232,50.607 0,82.301 0,98.763 C0,115.226 2.464,149.796 4.939,162.14 C7.415,174.484 14.001,188.473 32.952,194.236 C51.893,200 119.444,200 142.506,200 C165.568,200 233.119,200 252.059,194.236 C270.999,188.473 277.596,174.484 280.061,162.14 C282.536,149.796 285,115.226 285,98.763 C285,82.301 283.779,50.607 279.646,34.57" />
+	</symbol>
+	<symbol id="fcbksvg" viewBox="0, 0, 200, 200">
+		<path d="M176.665,71.355 L174.602,98.485 L146.783,98.485 L146.783,192.723 L111.646,192.723 L111.646,98.485 L92.904,98.485 L92.904,71.355 L111.646,71.355 C111.325,45.874 111.162,29.79 122.464,19.718 C133.917,9.511 154.214,9.646 180.39,14.76 C179.557,19.718 175.688,42.541 175.688,42.541 C175.688,42.541 167.881,40.293 160.606,40.293 C153.32,40.293 146.783,42.878 146.783,50.176 L146.783,71.355 z M182.637,-0 L17.362,-0 C7.775,-0 -0,7.787 -0,17.366 L-0,182.645 C-0,192.267 7.775,200 17.362,200 L182.637,200 C192.215,200 200,192.267 200,182.645 L200,17.366 C200,7.787 192.215,0 182.637,0" />
+	</symbol>
+	<symbol id="contactsvg" viewBox="0, 0, 274, 200">
+    	<path d="M185,100 L274,10 L274,189 z M11,200 L100,110 C100.213,110.107 126.187,139 137.126,139 C148.469,139 173.98,110.107 174,110 C180.946,117.062 263,200 263,200 z M0,189 L0,11 L89,100 z M263,0 C166.698,97.54 142.753,124.675 137.126,124.675 C131.261,124.675 11,0 11,0 z" />
+	</symbol>
+	<symbol id="phonesvg" viewBox="0, 0, 200, 200">
+		<path d="M89.3,157 C82.51,167.719 74.48,169.565 65.267,163.2 C81.795,152.676 86.671,138.403 88,132 C98.625,138.166 96.484,145.659 89.3,157 z M131,29.5 C140.261,32.305 144.223,36.407 139.535,52.794 C136.027,65.059 132.607,71.527 119,66 C127.474,58.47 131.616,38.699 131,29.5 z M100,200 C44.741,200 33.611,169.742 49.673,150.307 C42.088,128.144 52.016,96.856 68.191,70.324 C80.442,50.225 94.805,20.79 125.918,27.993 C127.856,36.471 119.412,60.837 114.983,64.497 C100.595,62.284 95.047,77 87.065,90.894 C79.823,103.5 73.093,122.113 84.142,129.604 C83.11,139.887 68.953,157.462 60.946,160.445 C60.387,160.637 57.362,158.57 55.026,155.798 C47.314,165.031 48.417,191 100,191 C153.258,191 190,148.732 190,100 C190,54.138 155.117,11.381 100,9 C14.032,9 -8.932,107.301 26.814,153.856 C26.811,160.362 20.909,159.097 20.463,158.431 C18.676,156.812 0,137.287 0,99.964 C0,48.276 37.474,0 100,0 C149.961,0 200,37.65 200,100 C200,168.09 142.633,200 100,200 z" />
+	</symbol>
+	<symbol id="accesssvg" viewBox="0, 0, 200, 200">
+		<path data-id="arrowline" fill-opacity="0" stroke-width="18" stroke-linecap="round" d="M9.5,100.5 L63.104,100.5" />
+		<path data-id="arrowarrow" fill-opacity="1" stroke-width="18"  d="M63.104,113.7 L98.304,100.5 L63.104,87.3 z" />
+		<path data-id="room" fill-opacity="0" stroke-width="18" stroke-linecap="round" d="M9.5,144.777 C9.5,170.581 30.419,191.5 56.223,191.5 L144.777,191.5 C170.581,191.5 191.5,170.581 191.5,144.777 L191.5,56.223 C191.5,30.419 170.581,9.5 144.777,9.5 L56.223,9.5 C30.419,9.5 9.5,30.419 9.5,56.223" />
+	</symbol>
+	<symbol id="x-close" viewBox="0 0 100 100">
+		<circle r="50" cx="50" cy="50" fill="#2358D0" stroke="#FFFFFF" stroke-width="0"/>
+		<path data-id="criscross" fill="#FFD63A" d="M62.374,69.445 L69.445,62.374 L57.071,50 L69.445,37.626 L62.374,30.555 L50,42.929 L37.626,30.555 L30.555,37.626 L42.929,50 L30.555,62.374 L37.626,69.445 L50,57.071 z" />
+	</symbol>
+	<symbol id="show-popup" viewBox="0 0 100 100">
+		<circle r="50" cx="50" cy="50" fill="#252838" stroke="#FFFFFF" stroke-width="0"/>
+		<path data-id="criscross" fill="#282C3D" d="M62.374,69.445 L69.445,62.374 L57.071,50 L69.445,37.626 L62.374,30.555 L50,42.929 L37.626,30.555 L30.555,37.626 L42.929,50 L30.555,62.374 L37.626,69.445 L50,57.071 z" />
+	</symbol>
+	<symbol id="menucollapsed" viewBox="0 0 100 100">
+		<!--rect x="0" y="0" width="100" height="100" fill="none" stroke="#D91D14" stroke-width="0.5" /-->
+		<g filter="url(#snmCarved)" stroke-opacity="0"><!--Sombra-->
+			<path d="M15.698,10 L84.302,10 C87.449,10 90,14.477 90,20 L90,20 C90,25.523 87.449,30 84.302,30 L15.698,30 C12.551,30 10,25.523 10,20 L10,20 C10,14.477 12.551,10 15.698,10 z" />
+			<path d="M15.698,40 L84.302,40 C87.449,40 90,44.477 90,50 L90,50 C90,55.523 87.449,60 84.302,60 L15.698,60 C12.551,60 10,55.523 10,50 L10,50 C10,44.477 12.551,40 15.698,40 z" />
+			<path d="M15.698,70 L84.302,70 C87.449,70 90,74.477 90,80 L90,80 C90,85.523 87.449,90 84.302,90 L15.698,90 C12.551,90 10,85.523 10,80 L10,80 C10,74.477 12.551,70 15.698,70 z" />
+		</g>
+		<g stroke-opacity="0" fill="url(#carvedgradBlue)"><!--fill="#FFD63A"-->
+			<path d="M15.698,10 L84.302,10 C87.449,10 90,14.477 90,20 L90,20 C90,25.523 87.449,30 84.302,30 L15.698,30 C12.551,30 10,25.523 10,20 L10,20 C10,14.477 12.551,10 15.698,10 z" />
+			<path d="M15.698,40 L84.302,40 C87.449,40 90,44.477 90,50 L90,50 C90,55.523 87.449,60 84.302,60 L15.698,60 C12.551,60 10,55.523 10,50 L10,50 C10,44.477 12.551,40 15.698,40 z" />
+			<path d="M15.698,70 L84.302,70 C87.449,70 90,74.477 90,80 L90,80 C90,85.523 87.449,90 84.302,90 L15.698,90 C12.551,90 10,85.523 10,80 L10,80 C10,74.477 12.551,70 15.698,70 z" />
+		</g>
+	</symbol>
+</svg>

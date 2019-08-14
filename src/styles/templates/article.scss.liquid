@@ -1,0 +1,90 @@
+article {
+	padding: 30px;
+	max-width: 1170px;
+	margin:0 auto 10px auto;
+	box-shadow: 5px 5px 5px 3px #000000;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px #000;
+	font-weight: 400;
+	background: 
+    /* left, transparent black */ 
+    linear-gradient(
+	      to right,
+	      rgba(0, 0, 0, 0.55), 
+	      rgba(0, 0, 0, 0.30)
+	    ),
+		url({{ 'metalbck.jpg' | file_img_url: '2000x1080' }});
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+article h1 {
+	position:relative;
+	margin:20px 0;
+}
+article h1 svg {
+	position: absolute;
+	top:calc(100% + 5px);
+	left:0;
+	width: 100%;
+	height:10px;
+}
+article header p {
+	text-align: right;
+	color: #1C5795;
+}
+article .articlecontainer {
+	padding:30px;
+	text-align: center;
+}
+article .articletext {
+	text-align: justify;
+	font-size: 16px;
+	line-height: 1.5;
+}
+article .social-sharing {
+	padding:10px;
+	color: #BEBEBE;
+	box-shadow: inset 1px 1px 1px 1px #000000;
+	background-image: 
+		    linear-gradient(
+			      to right,
+			      rgba(0, 0, 0, 0.25), 
+			      rgba(0, 0, 0, 0.20)
+			    );
+}
+article .social-sharing a {
+	padding:5px;
+	color: #BEBEBE;
+	margin:10px;
+}
+article .social-sharing a:hover {
+	color: #1C5795;
+	padding:6px;
+}
+article .social-sharing .icon {
+	margin:0 5px;
+}
+article .comment-form {
+	width:300px;
+	margin:auto;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+}
+@media screen and (min-width: 414px) and (max-width: 767px) {
+	article {
+		padding: 20px;
+	}
+	article .articlecontainer {
+		padding:20px;
+	}
+}
+@media screen and (max-width: 413px) {
+	article {
+		padding: 10px;
+	}
+	article .articlecontainer {
+		padding:10px 0px;
+	}
+}

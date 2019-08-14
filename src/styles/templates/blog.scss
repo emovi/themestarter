@@ -1,0 +1,40 @@
+#legasi-blog .tit_full a:hover {
+	color: #434855;
+	text-decoration: none;
+}
+#legasi-blog .tit_full {
+	margin:0;
+}
+#legasi-blog .tit_full a {
+	color:#bebebe;
+	text-decoration:none;
+}
+#legasi-blog .blogcontainer {
+	padding:20px;
+	display:grid;
+	grid-template-columns:1fr 1fr 1fr;
+	grid-gap:20px;
+}
+#legasi-blog .publicadoen {
+	margin-top:0;
+	margin-bottom:10px;
+	font-size:14px;
+}
+#legasi-blog .commentsandtags {
+	list-style:none;
+	padding:0;
+	font-size:14px;
+	margin:10px 0;
+}
+@media screen and (min-width: 414px) and (max-width: 767px) {
+	#legasi-blog .blogcontainer {
+		grid-template-columns:1fr 1fr;
+		grid-gap:20px;
+	}
+}
+@media screen and (max-width: 413px) {
+	#legasi-blog .blogcontainer {
+		grid-template-columns:1fr;
+		grid-gap:20px;
+	}
+}

@@ -1,0 +1,352 @@
+body {
+	font-size: 16px;
+	background-color: #CACACA;
+}
+#definesvg {
+	position:absolute;
+	top:-20001px;
+	left:-20000px;
+}
+#svgintro {
+	width:360px;
+	height:120px; 
+}
+/***** Index Template CSS */
+.snm_a_button {
+	padding:10px;
+	margin-bottom: 10px;
+	color: #BEBEBE;
+	background-color: #17222D;
+	text-align: center;
+	border-radius: 6px;
+	max-width: 50%;
+	text-decoration: none;
+}
+.snm_a_button:hover {
+	color: #1C5795;
+	padding:11px;
+}
+/* Forma Crea Usuario inputs */
+#create_customer #FirstName, 
+#create_customer #Email, 
+#create_customer #CreatePassword {
+	margin: 0px auto 20px auto;
+}
+#create_customer .errors {
+	margin: 30px 0px;
+	padding: 10px;
+	text-align: justify;
+	font-size: 16px;
+	color: #C6333B;
+}
+/* Forma Ingreso inputs */
+#customer_login #FirstName, 
+#customer_login #CustomerEmail, 
+#customer_login #CustomerPassword {
+	margin: 0px auto 20px auto;
+}
+#customer_login .errors {
+	margin: 30px 0px;
+	padding: 10px;
+	text-align: justify;
+	font-size: 16px;
+	color: #C6333B;
+}
+/***** Header CSS */
+#shopify-section-header > section {
+	width: 100%;
+}
+#emovi-header {
+	width:100%;
+	display: flex;
+	color: #fff;
+	justify-content: space-around;
+	align-items: stretch;
+}
+#emovi-header > h1, #emovi-header > .h1 {
+	margin: 0;
+	flex: none;
+}
+#emovi-header > a{
+	flex:1;
+}
+#menuwrap {
+	/*border:solid 1px #00ff00;*/
+	/*border-right: solid 1px #ff0000;*/
+	/*color:#2F9279;*/
+	/*Flex como Elemento*/
+	flex:1;
+	/*Flex como Contenedor*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0px 10px;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 2px #000;
+	font-weight: 400;
+}
+#menulist {
+	margin:0;
+	padding:0;
+	list-style: none;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#menulist li {
+	line-height: 1.5;
+	padding:5px;
+	margin: 0;
+	font-size: 18px;
+	color:#F7F6F7;
+	white-space: nowrap;
+	flex:1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#menulist li a {
+	text-decoration:none;
+	color:#F7F6F7;
+}
+#menulist li:hover a {
+	/*text-shadow: 1px 1px 1px #000;*/
+	color:#BEBEBE;
+}
+#menulist li:hover {
+	border-bottom: 1px solid #BEBEBE;
+}
+#menulist .active {
+	border-bottom: 1px solid #2F9279;
+}
+#menucollapsedsvg {
+	flex: none;
+	width:100px;
+	height:100px;
+	cursor: pointer;
+	display: none;
+	fill:#FFD63A;
+}
+@media screen and (max-width: 767px) {
+	#menulist {
+		position:fixed;
+		top:97px;
+		left:0;
+		width:100%;
+		background-color:rgba(0, 0, 0, 0.75);
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: stretch;
+		transform: translate(-100%);
+		transition: transform 1s ease-out;
+	}
+	#menulist>li, #menulist.mobile>li {
+		margin: 10px auto;
+		min-width: 200px;
+		text-align: center;
+	}
+	#menulist.mobile {
+		transform: translate(0%);
+	}
+	#menucollapsedsvg {
+		display: block;
+		width:80px;
+		height:80px;
+	}
+	#emovi-header>h1 {
+		flex: none;
+		position: relative;
+		width: 80px;
+	}
+	#svgintro {
+		width: 80px;
+		height: 80px;
+	}
+}
+/***** Secciones CSS */
+/* Wrapper de Sección establece:
+	alto igual a main,
+	centrado vertical y  
+*/
+.tit_full {
+	flex:1;
+	padding:1em;
+	color: #BEBEBE;
+	background-color: #17222D;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.snm-seccion-login {
+	width:100%;
+	padding:40px 0px;
+	max-width: 300px;
+	margin:auto;
+	text-align: center;
+}
+.shopify-section {
+	/* Clase que se asigna al div que envuelve a las secciones Shopify */
+	margin: 10px 0px;
+	padding:10px;
+	/*border:1px solid #000;*/
+}
+#shopify-section-footer {
+	color:#434855;
+	background-color:#17222D;
+	min-height:100px;
+	position: relative;
+	margin: 0;
+}
+.emovi-footer_derechos {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	color:#434855;
+}
+footer a {
+	color:#434855;
+	margin: 5px auto;
+}
+/***** snm-social-links  */
+.medialist {
+	width:80%;
+	margin:10px auto;
+}
+#mediaintrolist {
+	width:100%;
+	height:60px;
+	padding: 0px 10px;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+	align-items: stretch;
+	text-shadow: 1px 1px 2px #000;
+	font-weight: 400;
+}
+#mediaintrolist li {
+	line-height: 1.5;
+	padding:5px;
+	margin: 0px 5px;
+	white-space: nowrap;
+	flex:1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#mediaintrolist li a {
+	text-decoration:none;
+	color:#434855;
+}
+#mediaintrolist li:hover a {
+	color:#1C5795;
+}
+#mediaintrolist li:hover {
+	border-bottom: 1px solid #1C5795;
+}
+#mediaintrolist .active {
+	border-bottom: 1px solid #2F9279;
+}
+.snm-icon {
+	height:20px;
+	margin: auto;
+	fill: currentColor;
+	stroke:currentColor;
+	vertical-align: middle;
+}
+/***** Solo en hoja Password */
+#enterintro {
+	visibility: hidden;
+	position: absolute;
+	top:65px;
+	right:10px;
+	font-size: 16px;
+	z-index: 10001;
+}
+#choro{
+	position: absolute;
+	top:auto;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:auto;
+	padding: 10px 8%;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #17222D;
+	color: #FFFFFF;
+	line-height: 1.5;
+	letter-spacing: 2px;
+	font-size: 1em;
+	text-shadow: 1px 1px 2px #000;
+	font-weight: 400;
+}
+/***** Templates */
+.pagecontainer {
+	max-width: 960px;
+	margin:auto;
+	padding: 30px;
+}
+/***** Pagination *****/
+.pagination {
+	padding: 20px;
+	display: flex;
+	align-items: center;
+}
+.pagination span {
+	flex: none;
+	padding: 10px;
+	margin-right: 5px;
+	color: #BEBEBE;
+	background-color: #17222D;
+	text-align: center;
+	border-radius: 6px;
+}
+.pagination span.current {
+	color: #BEBEBE;
+	background-color: #434855;
+}
+.pagination span:hover {
+	background-color: #1F2844;
+}
+.pagination a:hover {
+	color: #1C5795;
+	text-decoration: underline;
+}
+.pagination a {
+	color: #434855;
+	text-decoration: none;
+}
+/* Tooltip container */
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+/* Tooltip text */
+.tooltip .tooltiptext {
+	visibility: hidden;
+	background-color: black;
+	font-size: 10px;
+	color: #fff;
+	text-align: center;
+	padding: 5px 10px;
+	border-radius: 6px;
+
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+	top:200%;
+	left:50%;
+	transform: translate(-50%);
+	z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

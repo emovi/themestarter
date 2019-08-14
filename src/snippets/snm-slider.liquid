@@ -1,0 +1,44 @@
+{% comment %}
+	<!-- snm-slider.liquid
+		Los elementos se crean en JS emovi.js
+		Los .slidepointerwap se usan en JS para asignar la función que dispara cada slide
+	<li>
+		<span id="slideimg1">Image</span>
+		<div id="slidecapt1" class="slidecapt"></div>
+		...
+		<span id="slideimgn">Image</span>
+		<div id="slidecapt(n)" class="slidecapt"></div>
+	</li>
+	<div id="sliderindx">
+		<div class='slidepointerwrap'></div>
+		<div class="slidepointerwrap"></div>
+		...(n)
+	</div>
+	-->
+{% endcomment%}
+<ul id="ulslider" class="emovi-slideshow"><!--Inicia bb-Slider--></ul><!--Termina bb-Slider-->
+<ul id="slidermenu">
+	<li>
+		<a class="tooltip" title="Qué es LEGASI" href="#seccion1">
+			{{  'menusliderlegasi.png' | file_img_url:'x40' | img_tag:'Qué es LEGASI', 'slidermenuopc' }}
+		</a>
+	</li>
+	<li>
+		<a class="tooltip" title="Cómo Funciona LEGASI" href="#seccion2">
+			{{  'menusliderfunc.png' | file_img_url:'x40' | img_tag:'Cómo funciona LEGASI', 'slidermenuopc' }}
+		</a>
+	</li>
+	<li>
+		<a class="tooltip" title="Seguridad LEGASI" href="#seccion3">
+			{{  'menusliderseg.png' | file_img_url:'x40' | img_tag:'Seguridad LEGASI', 'slidermenuopc' }}
+		</a>
+	</li>
+	<li>
+		<a class="tooltip" title="Tipos de Bóvedas" href="#seccion4">
+			{{  'menusliderbovs.png' | file_img_url:'x40' | img_tag:'Bóvedas LEGASI', 'slidermenuopc' }}
+		</a>
+	</li>
+</ul>
+<h1 class="sliderfixed">Texto del Fixed Caption</h1>
+<div id="sliderindx"></div>
+<div id="sliderscreen"></div>

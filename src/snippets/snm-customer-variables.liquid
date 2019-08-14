@@ -1,0 +1,33 @@
+{% comment %} 
+	Se genera una lista de páginas (handles) que requieren acceso a eMovi Api
+	Se registra el handle de la página actual
+	Si la página actual está dentro de la lista y si el usuario está loggeado...
+		se registran los datos de acceso a la información del usuario. 
+{% endcomment %}
+{% capture pageApis %}emovicors, emovitest{% endcapture %}
+{% assign pageHandle = handle %}
+
+{% if pageApis contains pageHandle %}
+	{% if customer %}
+		<script>
+			window.eG = window.eG || {};
+			window.eG.Customer = {
+				clave: "{{ customer.id }}",
+				alias: "{{ customer.first_name }}",
+				user: "{{ customer.email }}"
+			};
+		</script>
+	{% else %}
+		<script>
+			window.eG = window.eG || {};
+			window.eG.Customer = null;
+			window.eG.Apis = ["{{pageApis}}", "{{pageHandle}}"];
+		</script>
+	{% endif %}
+{% else %}
+	<script>
+		window.eG = window.eG || {};
+		window.eG.Customer = null;
+		window.eG.Apis = ["{{pageApis}}", "{{pageHandle}}"];
+	</script>	
+{% endif %}

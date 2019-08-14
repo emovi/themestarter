@@ -1,0 +1,519 @@
+{
+  "current": {
+    "color_accent": "#c4cdd5",
+    "color_body_text": "#161d25",
+    "color_main_bg": "#cacaca",
+    "font_heading": "roboto_n5",
+    "font_body": "roboto_n4",
+    "share_image": "shopify:\/\/shop_images\/avisos.jpg",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/legascy",
+    "social_pinterest_link": "https:\/\/www.pinterest.com.mx\/legascy\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/legasimkt\/",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "cart_notes_enable": true,
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#1990c6",
+    "checkout_button_color": "#1990c6",
+    "checkout_error_color": "#ff6d6d",
+    "color_primary": "#eb4f47",
+    "color_header_text": "#e1c9b4",
+    "color_primary_heading_text": "#4a4a4a",
+    "color_primary_body_text": "#4a4a4a",
+    "color_footer_text": "#4a4a4a",
+    "color_button_text": "#ffffff",
+    "color_header_bg": "#fff",
+    "color_footer_bg": "#eae7e0",
+    "color_secondary_bg": "#f4f1ec",
+    "color_product_cards": "#fff",
+    "color_form_elements": "#fff",
+    "color_cart_flag": "#eb4f47",
+    "type_base_size": "62.5%",
+    "type_header_font": "monotype_baskerville_n4",
+    "type_base_font": "avenir_next_n4",
+    "show_cart_drawer": true,
+    "show_cart_note": false,
+    "logo_max_height": "15",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "announcement_bar_enabled": false,
+          "announcement_bar_home_page_only": true,
+          "announcement_bar_text": "Announce something here",
+          "announcement_bar_link": "",
+          "logo": "",
+          "logo_max_width": 360,
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "show_social_icons": true,
+          "show_payment_icons": true,
+          "enable_parallax": false,
+          "show_newsletter": false,
+          "newsletter_heading": "Sign up for updates",
+          "newsletter_subheading": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>"
+        }
+      },
+      "1535080872018": {
+        "type": "image-with-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/boveda.png",
+          "id": "id=\"seccion1\"",
+          "layout": "left",
+          "title": "¿Qué es LEGASI?",
+          "text": "<p><strong>LEGASI<\/strong> es un servicio de albacea digital y de monitoreo en vida donde puedes organizar y guardar en una b&oacute;veda electr&oacute;nica (confidencial y segura) informaci&oacute;n relativa a tus preferencias funerarias y a tu legado.<\/p>\n<p>En caso de deceso o incapacidad, <strong>LEGASI<\/strong> entregará el acceso a la bóveda exclusivamente a las personas designadas por ti.<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "tres-imagenes": {
+        "type": "tres-imagenes",
+        "blocks": {
+          "1535227204513": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/business-cat-in-office.jpg",
+              "column_title": "LEGASI Feature",
+              "legasi_html": "<h2>Texto de mi cosecha<\/h2><p>Problema Soluciondo<\/p>",
+              "column_title_dos": "Precio de Membresía: Gratuito",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1535227231878": {
+            "type": "columna",
+            "settings": {
+              "imagen": "",
+              "column_title": "LEGASI Feature",
+              "legasi_html": "<p>Add your text here<\/p>",
+              "column_title_dos": "Precio de Membresía: Gratuito",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1535228052722": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/puertalegasi.jpg",
+              "column_title": "LEGASI Feature",
+              "legasi_html": "<p>Add your text here<\/p>",
+              "column_title_dos": "Precio de Membresía: Gratuito",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1535227204513",
+          "1535227231878",
+          "1535228052722"
+        ],
+        "settings": {
+          "id": "",
+          "heading_seccion": "¿Cómo Funciona LEGASI?"
+        }
+      },
+      "1535232365081": {
+        "type": "tres-imagenes",
+        "blocks": {
+          "1535232365081-0": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/boveda.jpg",
+              "column_title": "Organiza tu legado",
+              "legasi_html": "<p>Contrata una bóveda para organizar y guardar en ella información relativa a tus preferencias funerarias o a tu legado: testamento, seguros, inversiones y bienes en general.<\/p>",
+              "column_title_dos": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1535233031397": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/alertas.jpg",
+              "column_title": "Monitoreo en vida",
+              "legasi_html": "<p><b>LEGASI<\/b> periódicamente te buscará por correo electrónico (monitoreo en vida) en base a las reglas de entrega que hayas elegido.<\/p>",
+              "column_title_dos": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1535326368194": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/avisos.jpg",
+              "column_title": "Acceso a tus depositarios",
+              "legasi_html": "<p>Al no responder a los mensajes de <b>LEGASI<\/b> y cumplirse con las reglas de entrega, <b>LEGASI<\/b> enviará a los depositarios designados por ti, las claves de acceso a la bóveda sin costo para ellos.<\/p>",
+              "column_title_dos": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1535232365081-0",
+          "1535233031397",
+          "1535326368194"
+        ],
+        "settings": {
+          "id": "id=\"seccion2\"",
+          "heading_seccion": "¿Cómo Funciona LEGASI?"
+        }
+      },
+      "1535378002756": {
+        "type": "tres-imagenes",
+        "blocks": {
+          "1535378033968": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/Boveda-ssl-gris.jpg",
+              "column_title": "Seguridad",
+              "legasi_html": "<p><b>LEGASI<\/b> cuenta con certificados de seguridad y encriptado de última generación.<\/p>",
+              "column_title_dos": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1535378383232": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/userlogin.jpg",
+              "column_title": "Anonimato",
+              "legasi_html": "<p>Las bóvedas son numeradas: <b>LEGASI<\/b> no solicita información personal, por lo que tu bóveda no está vinculada con tu nombre.<\/p>",
+              "column_title_dos": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1535388096973": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/autenticacion.jpg",
+              "column_title": "Acceso seguro",
+              "legasi_html": "<p>Solo mediante el número y la clave de bóveda se puede tener acceso a la información.<\/p>",
+              "column_title_dos": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1535388329633": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/autorizRojo.jpg",
+              "column_title": "Acceso restringido",
+              "legasi_html": "<p>Solamente las personas designadas por el titular tendrán acceso y solo de acuerdo con las reglas preestablecidas por él.<\/p>",
+              "column_title_dos": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1535378033968",
+          "1535378383232",
+          "1535388096973",
+          "1535388329633"
+        ],
+        "settings": {
+          "id": "id=\"seccion3\"",
+          "heading_seccion": "Tomamos muy en serio la Seguridad"
+        }
+      },
+      "1543372900821": {
+        "type": "tres-imagenes",
+        "blocks": {
+          "1543373013256": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/Boveda-Personal.jpg",
+              "column_title": "Bóveda Personal",
+              "legasi_html": "<p>Organiza, guarda y comparte, de forma segura, información relativa a tu persona y a la disposición de tu cuerpo.<br>Con este servicio puedes expresar a quienes tú elijas, temas relativos a tus preferencias funerarias, planes funerarios con los que cuentes e inclusive información más específica, como voluntad anticipada o preferencia en donación de órganos.<br>Esta información es compartida de forma inmediata con los depositarios designados para que conozcan oportunamente tu voluntad con respecto a estos temas.<\/p>",
+              "column_title_dos": "Membresía sin costo",
+              "button_label": "Crear Bóveda Personal",
+              "button_link": "\/account\/register"
+            }
+          },
+          "1543372946690": {
+            "type": "columna",
+            "settings": {
+              "imagen": "shopify:\/\/shop_images\/Boveda-Patrimonial.jpg",
+              "column_title": "Bóveda Patrimonial",
+              "legasi_html": "<p>Organiza, guarda y comparte, de forma segura y confidencial, información relativa a tus bienes y patrimonio.<br>Con este servicio puedes almacenar y transmitir a tus seres queridos, información sobre tu testamento, inversiones, seguros o bienes en general que deseas lleguen a las manos correctas cuando ya no estés.<br><b>LEGASI<\/b> entregará a los depositarios designados por ti, acceso a esta bóveda en base a las reglas de entrega que elijas: de forma inmediata o al momento en que dejes de reiniciar el temporizador digital de entrega.<\/p>",
+              "column_title_dos": "Bóveda Patrimonial: $360 anuales",
+              "button_label": "Contratar Bóveda Patrimonial",
+              "button_link": "\/"
+            }
+          }
+        },
+        "block_order": [
+          "1543373013256",
+          "1543372946690"
+        ],
+        "settings": {
+          "id": "id=\"seccion4\"",
+          "heading_seccion": "Bóvedas"
+        }
+      }
+    },
+    "content_for_index": [
+      "1535080872018",
+      "1535232365081",
+      "1535378002756",
+      "1543372900821"
+    ]
+  },
+  "presets": {
+    "Warm": {
+      "color_primary": "#eb4f47",
+      "color_header_text": "#e1c9b4",
+      "color_primary_heading_text": "#4a4a4a",
+      "color_primary_body_text": "#4a4a4a",
+      "color_footer_text": "#4a4a4a",
+      "color_button_text": "#ffffff",
+      "color_header_bg": "#fff",
+      "color_footer_bg": "#eae7e0",
+      "color_main_bg": "#faf9f6",
+      "color_secondary_bg": "#f4f1ec",
+      "color_product_cards": "#fff",
+      "color_form_elements": "#fff",
+      "color_cart_flag": "#eb4f47",
+      "type_base_size": "62.5%",
+      "type_header_font": "monotype_baskerville_n4",
+      "type_base_font": "avenir_next_n4",
+      "show_cart_drawer": true,
+      "show_cart_note": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#1990C6",
+      "checkout_button_color": "#1990C6",
+      "checkout_error_color": "#ff6d6d",
+      "logo_max_height": "15",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1486649858082": {
+              "type": "menu",
+              "settings": {
+                "link_list": "footer"
+              }
+            }
+          },
+          "block_order": [
+            "1486649858082"
+          ],
+          "settings": {
+            "show_social_icons": true,
+            "show_payment_icons": true,
+            "enable_parallax": true,
+            "show_newsletter": true
+          }
+        },
+        "1486649811524": {
+          "type": "featured-product",
+          "settings": {
+            "show_share_buttons": true
+          }
+        }
+      },
+      "content_for_index": [
+        "1486649811524"
+      ]
+    },
+    "Light": {
+      "color_primary": "#dfa160",
+      "color_header_text": "#dfa160",
+      "color_primary_heading_text": "#000000",
+      "color_primary_body_text": "#4a4a4a",
+      "color_footer_text": "#ffffff",
+      "color_button_text": "#ffffff",
+      "color_header_bg": "#fff",
+      "color_footer_bg": "#dfa160",
+      "color_main_bg": "#ffffff",
+      "color_secondary_bg": "#f7f7f7",
+      "color_product_cards": "#ebebeb",
+      "color_form_elements": "#f1f1f1",
+      "color_cart_flag": "#b76b50",
+      "type_base_size": "62.5%",
+      "type_header_font": "open_sans_n7",
+      "type_base_font": "open_sans_n4",
+      "show_cart_drawer": true,
+      "show_cart_note": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#1990C6",
+      "checkout_button_color": "#1990C6",
+      "checkout_error_color": "#ff6d6d",
+      "transparent_logo": "",
+      "logo_max_height": "15",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1486586799558": {
+              "type": "menu",
+              "settings": {
+                "link_list": "footer"
+              }
+            }
+          },
+          "block_order": [
+            "1486586799558"
+          ],
+          "settings": {
+            "show_social_icons": true,
+            "show_payment_icons": true,
+            "enable_parallax": true,
+            "show_newsletter": true
+          }
+        }
+      },
+      "content_for_index": [
+
+      ]
+    },
+    "Cold": {
+      "color_primary": "#00b490",
+      "color_header_text": "#00b490",
+      "color_primary_heading_text": "#ffffff",
+      "color_primary_body_text": "#a9a9a9",
+      "color_footer_text": "#000000",
+      "color_button_text": "#000000",
+      "color_header_bg": "#191c1b",
+      "color_footer_bg": "#00b490",
+      "color_main_bg": "#000000",
+      "color_secondary_bg": "#191c1b",
+      "color_product_cards": "#191c1b",
+      "color_form_elements": "#292c2b",
+      "color_cart_flag": "#ffffff",
+      "type_base_size": "62.5%",
+      "type_header_font": "titillium_web_n7",
+      "type_base_font": "lato_n4",
+      "show_cart_drawer": true,
+      "show_cart_note": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#1990C6",
+      "checkout_button_color": "#1990C6",
+      "checkout_error_color": "#ff6d6d",
+      "transparent_logo": "",
+      "logo_max_height": "15",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1486664283354": {
+              "type": "menu",
+              "settings": {
+                "link_list": "footer"
+              }
+            }
+          },
+          "block_order": [
+            "1486664283354"
+          ],
+          "settings": {
+            "show_social_icons": true,
+            "show_payment_icons": true,
+            "enable_parallax": true,
+            "show_newsletter": true,
+            "newsletter_heading": "Sign up for updates"
+          }
+        },
+        "featured-collection": {
+          "type": "featured-collection",
+          "settings": {
+          }
+        }
+      },
+      "content_for_index": [
+        "featured-collection"
+      ]
+    }
+  }
+}

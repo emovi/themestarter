@@ -1,0 +1,41 @@
+/*
+*	Estilos Generales con markup liquid
+*	que se cargan en Theme.liquid
+*	src/assets/theme.scss.liquid
+*	
+*	//eMovi
+*	@import './layout/emoviliquid.scss';
+*
+*/
+#shopify-section-header {
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:10;
+	height:auto;
+	width:100%;
+	display: flex;
+	padding:5px;
+	margin:0px;
+	box-shadow: 0px 3px 8px -4px #000000;
+    background:linear-gradient(
+			      to right,
+			      rgba(0, 0, 0, 0.45), 
+			      rgba(0, 0, 0, 0.20)
+			    ),
+			    url({{ 'metalbck.jpg' | file_img_url: '2000x1080' }});
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+section.image-with-text {
+	background:linear-gradient(
+			      to right,
+			      rgba(0, 0, 0, 0.45), 
+			      rgba(0, 0, 0, 0.20)
+			    ),
+			    url({{ 'metalbck.jpg' | file_img_url: '2000x1080' }});
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center center;
+}

@@ -1,0 +1,87 @@
+{% if handle == "emovicors" %}
+	{% comment %} 
+		html para Bóvedas LEGASI 
+	{% endcomment %}
+	<h1 class="tit_full">Bóveda Básica</h1>
+      <div class="snm-seccion-bovedas">
+        <form action="" id="boveda_basica" class="emoviform" method='post' accept-charset="utf-8">
+          <input type="hidden" name="user_id">
+          <input type="hidden" name="user_cve" value= "{{customer.id}}" >
+          <input type="hidden" name="user_email" value= "{{customer.email}}" >
+          <input type="hidden" name="bov_status">
+          <input type="hidden" name="utf8" value="✓">
+          <fieldset id="fldset_volunt">
+            <legend>Voluntades Funerarias</legend>
+            <label for="volantic">
+              Voluntad Anticipada:
+              <textarea value= "" class="snm-control" name="volantic" id="volantic" placeholder="* Exprese su voluntad anticipada" required="required" spellcheck="false" autocomplete="off" autocapitalize="off" rows="10">Voluntad Anticipada de segana </textarea><!--Termina Input Mensaje-->
+            </label>
+            <label for="donacorg">
+              Donación de órganos:
+              <textarea value= "" class="snm-control" name="donacorg" id="donacorg" placeholder="* Exprese su voluntad sobre donación de órganos" required="required" spellcheck="false" autocomplete="off" autocapitalize="off" rows="10">Donación de Órganos de segana </textarea>
+            </label>
+            
+            <label for="planesfun">
+              Planes Funerarios:
+              <textarea value= "" class="snm-control" name="planesfun" id="planesfun" placeholder="* Exprese su voluntad sobre planes funerarios" required="required" spellcheck="false" autocomplete="off" autocapitalize="off" rows="10">Planes Funerarios de segana </textarea>
+            </label>
+            
+            <label for="preferenciasfun">
+              Preferencias Funerarias:
+              <textarea value= "" class="snm-control" name="preferenciasfun" id="preferenciasfun" placeholder="* Exprese su voluntad sobre Preferencias Funerarias" required="required" spellcheck="false" autocomplete="off" autocapitalize="off" rows="10">Preferencias Funerarias de segana ...</textarea>
+            </label> 
+          </fieldset>
+          <fieldset id="fldset_deposit">
+            <legend>Depositarios</legend>
+            <div>&nbsp;</div>
+            <div>Correo Electrónico</div>
+            <div>Nombre para dirigir un mensaje al depositario</div>
+            <div>Alias del depositario, se usará para dirigir la notificación al depositario</div>
+            <div>Contraseña de ingreso para el depositario</div>
+            <input type="checkbox" name="depositario1" value="depositario1">
+            <input type="email"    name="depositario1[email]"  required="required" class="snm-control" placeholder="* correo electrónico" spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="text"     name="depositario1[nombre]" required="required" class="snm-control" placeholder="* Nombre"             spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="text"     name="depositario1[alias]"  required="required" class="snm-control" placeholder="* Alias"              spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="text"     name="depositario1[clave]"  required="required" class="snm-control" placeholder="* Contraseña"         spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="checkbox" name="depositario2" value="depositario2">
+            <input type="email"    name="depositario2[email]"                      class="snm-control" placeholder="* correo electrónico" spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="text"     name="depositario2[nombre]"                     class="snm-control" placeholder="* Nombre"             spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="text"     name="depositario2[alias]"                      class="snm-control" placeholder="* Alias"              spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="text"     name="depositario2[clave]"                      class="snm-control" placeholder="* Contraseña"         spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="checkbox" name="depositario3" value="depositario3">
+            <input type="email"    name="depositario3[email]"                      class="snm-control" placeholder="* correo electrónico" spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="text"     name="depositario3[nombre]"                     class="snm-control" placeholder="* Nombre"             spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="text"     name="depositario3[alias]"                      class="snm-control" placeholder="* Alias"              spellcheck="false" autocomplete="off" autocapitalize="off">
+            <input type="text"     name="depositario3[clave]"                      class="snm-control" placeholder="* Contraseña"         spellcheck="false" autocomplete="off" autocapitalize="off">
+          </fieldset>
+          <div class="buttonbar">
+            <input id="guardabov" type="submit" value="Guardar Bóveda Personal" class="button">
+            <a id="regrebov" class="button" href="/">Regresar</a>
+            <button id="envmail" class="button">Envía mails</button>
+          </div>
+        </form>
+      </div>
+      <div id="emovimsjuser"></div>
+{% else %}
+	{% comment %} 
+		html para otras páginas con el template page.liquid 
+	{% endcomment %}
+	<div class="pagecontainer">
+	  {{ page.content }}
+	</div>
+{% endif %}
+
+{% comment %} 
+	Presenta los botones de acción 
+
+{% unless handle != 'emovicors' %}
+  <a id="corsRequest" class="button" href="#">
+    CORS Request 
+  </a>
+  {% if customer %}
+  	<a id="corsEdit" class="button" href="#">
+		Edit Bbas 
+	</a>
+  {% endif %}
+{% endunless %}
+{% endcomment %}

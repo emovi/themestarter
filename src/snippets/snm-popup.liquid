@@ -1,0 +1,15 @@
+{% if snm-popup  %}
+	<svg id="showPopup" ><use x="0" y="0" width="40" height="40" xlink:href="#show-popup"></use></svg>
+	<div id="popup-snm">
+		<div id="popback-snm">
+			<div id="popmain-snm">
+				<div id="popheader-snm">
+					<svg id="closepopup"><use x="0" y="0" width="40" height="40" xlink:href="#x-close"></use></svg>
+				</div>
+				<div id="popbody-snm">
+					{% include 'snm-showvars' with true %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

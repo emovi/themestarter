@@ -1,0 +1,54 @@
+.tres-imagenes {
+	min-height: 100%;
+	max-width: 1170px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.tres-imagenes > .tit_full {
+	max-height: 4em;
+	padding: 2em 20px;
+	flex:none;
+}
+.secc-tres-imagenes-grid-h {
+	flex:1;
+	display:flex;
+	justify-content: space-between;
+	align-items: stretch;
+	/*box-shadow: 0px 3px 8px -4px #000000; */
+}
+.secc-tres-imagenes-grid-item {
+	flex:1;
+	padding:15px;
+	text-align: center;
+}
+.secc-tres-imagenes-imagen {
+	height:200px;
+	width:200px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	margin:0 auto 20px auto;
+}
+.tit_tresimg1 {
+	text-align: center;
+}
+.secc-tres-imagenes-choro {
+	display:flex;
+	justify-content: center;
+	max-width: 300px;
+	text-align: justify;
+	margin: auto;
+}
+@media screen and (max-width: 959px) {
+	.secc-tres-imagenes-grid-h {
+		flex-wrap: wrap;
+		align-content: center;
+	}
+	.secc-tres-imagenes-grid-item {
+		flex:1 0 40%;
+		padding:15px;
+		text-align: center;
+	}
+}

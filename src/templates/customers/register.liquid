@@ -1,0 +1,63 @@
+<h1 class="tit_full">Bóveda Básica</h1>
+<div class="snm-seccion-login">
+  {% form 'create_customer' %}
+    {{ form.errors | default_errors }}
+    
+    
+      <label for="FirstName" class="label-hidden">
+        Código Usuario
+      </label>
+      <input type="text"
+        name="customer[first_name]"
+        id="FirstName"
+        placeholder="Alias Titular"
+        autofocus
+        {% if form.first_name %}value="{{ form.first_name }}"{% endif %}>
+
+      {% comment %}
+      <label for="LastName" class="label-hidden">
+        {{ 'customer.register.last_name' | t }}
+      </label>
+      <input type="text"
+        name="customer[last_name]"
+        id="LastName"
+        placeholder="{{ 'customer.register.last_name' | t }}"
+        {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+    {% endcomment %}
+    
+    <label for="Email" class="label-hidden">
+      {{ 'customer.register.email' | t }}
+    </label>
+    <input type="email"
+      name="customer[email]"
+      id="Email"
+      class="{% if form.errors contains 'email' %}input-error{% endif %}"
+      placeholder="{{ 'customer.register.email' | t }}"
+      value="{% if form.email %}{{ form.email }}{% endif %}"
+      spellcheck="false"
+      autocomplete="off"
+      autocapitalize="off">
+
+    <label for="CreatePassword" class="label-hidden">
+      {{ 'customer.register.password' | t }}
+    </label>
+    <input type="password"
+      name="customer[password]"
+      id="CreatePassword"
+      class="{% if form.errors contains 'password' %}input-error{% endif %}"
+      placeholder="{{ 'customer.register.password' | t }}">
+
+    {% comment %} 
+      Código Personalizado
+      Incluir Campos Adicionales
+      <label for="CustomerFormAllergies">Allergies</label>
+      <input type="text" id="CustomerFormAllergies" name="customer[note][Allergies]" placeholder="Allergies">
+    {% endcomment %}
+
+    <p>
+      <input type="submit" value="Crear Bóveda" class="button">
+    </p>
+    <a class="snm_a_button" href="{{ shop.url }}">Regresar</a>
+    <div class="errors"></div>
+  {% endform %}
+</div>

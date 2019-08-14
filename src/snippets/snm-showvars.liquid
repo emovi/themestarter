@@ -1,0 +1,26 @@
+{% if snm-showvars  %}
+	<p style='background:#f1c40f; padding: 1em; font-weight: bold; color: #222'>
+		Current template: {{ template}}.liquid <br>
+		Template | handleize: {{ template | handleize }} <br>
+		Current handle: {{ handle }} <br>
+		Page Title: {{ page_title }} <br>
+		Page body id = {%- if template != "page.faqs" -%}{{ page_title | handle }}{%- else -%}{{ template | handleize }}{%- endif -%} <br>
+		Page URL: {{ page.url }} <br>
+		Customer Accounts: {% if shop.customer_accounts_enabled %} "Enabled" {% else %} "NOT Enabled" {% endif %} <br>
+		{% if customer %}
+			<b>
+			Customer is logged in. I can access the customer info: <br>
+			'customer.id ': {{ customer.id }} <br>
+			'layout.customer.logged_in_as_html': {{ 'layout.customer.logged_in_as_html' | t: first_name: 'yoyo' }} <br>
+			'layout.customer.account': {{ 'layout.customer.account' | t }} <br>
+			'customer.register.title': {{ 'customer.register.title' | t }} <br>
+			'customer.account.title': {{ 'customer.account.title' | t }} <br>
+			'customer.orders.title' : {{ 'customer.orders.title' | t }} <br>
+			</b>
+		{% else %}
+			<b>Customer is not logged in. Customer's info is not available </b><br>
+		{% endif %}
+		section.settings.button_link:{{section.settings.button_link}}  <br>
+	</p>
+	<br><br><br><br><br>
+{% endif %}

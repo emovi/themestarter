@@ -1,0 +1,102 @@
+{%- assign social_icons = false -%}
+{%- assign menu_enabled = false -%}
+
+{% if
+  settings.social_twitter_link != blank
+  or settings.social_facebook_link != blank
+  or settings.social_pinterest_link != blank
+  or settings.social_instagram_link != blank
+  or settings.social_tumblr_link != blank
+  or settings.social_snapchat_link != blank
+  or settings.social_youtube_link != blank
+  or settings.social_vimeo_link != blank
+  or template.name == 'article'
+  or template.name == 'blog'
+%}
+  {%- assign social_icons = true -%}
+{% endif %}
+
+{%- for block in section.blocks -%}
+  {%- if block.type == 'menu' -%}
+    {%- assign menu_enabled = true -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<footer class="emovi-footer" role="contentinfo">
+      <div class="medialist">
+        {% include 'snm-social-links' %}
+      </div>
+      <div class="emovi-footer_derechos">
+        <small>Derechos de Autor &copy; {{ 'now' | date: "%Y" }},  LEGASI.</small>
+        <small>Desarrollo Web eMovilidad</small>
+        <a href="/pages/politica-de-privacidad-legasi"><small>Aviso de privacidad</small></a>
+        <a href="/pages/terminos-y-condiciones-de-uso"><small>Términos y Condiciones de Uso</small></a>
+      </div>
+</footer>
+{% include 'snm-popup' with true %}
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_social_icons",
+      "label": "Show social icons",
+      "info": "Fill out your social links in the general settings",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "info": "Update your payment settings in your store's Settings / Payments",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_parallax",
+      "label": "Enable footer scrolling parallax effect",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show newsletter signup",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Heading",
+      "default": "Sign up for updates"
+    },
+    {
+      "type": "richtext",
+      "id": "newsletter_subheading",
+      "label": "Subheading",
+      "default": "<p>Promotions, new products and sales. Directly to your inbox.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "limit": 2,
+      "settings": [
+        {
+          "id": "link_list",
+          "type": "link_list",
+          "label": "Menu",
+          "default": "footer",
+          "info": "This menu won't show dropdown items"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

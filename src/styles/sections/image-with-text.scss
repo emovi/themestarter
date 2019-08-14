@@ -1,0 +1,38 @@
+.image-with-text {
+  min-height: 100%;
+  max-width: 1170px;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  flex-wrap: wrap;
+}
+
+.image-with-text__image {
+  flex: 0 1 40%;
+  min-width: 320px;
+}
+
+.image-with-text__text {
+  flex: 1 1 50%;
+  margin: 0 2.5%;
+  display:flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+}
+/* Estilos eMovi */
+.image-with-text__text h2 {
+	padding:5px;
+	color: #BEBEBE;
+	background-color: #17222D;
+	text-align: center;
+	flex:none; 
+}
+.image-with-text__text p {
+  flex:1;
+  text-align: justify;
+  padding: 0px 15px;
+  color: #f6f7f6;
+  text-shadow: 1px 1px 2px #000;
+  font-weight:600;
+}

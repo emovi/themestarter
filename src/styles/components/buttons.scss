@@ -1,0 +1,27 @@
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  border: 0;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+  appearance: none;
+  /* eMovi Customized*/
+  padding:10px;
+  margin-bottom: 10px;
+  color: #BEBEBE;
+  background-color: #17222D;
+  font-size:16px;
+  border-radius: 6px;
+}
+.button:hover:enabled {
+	color: #1C5795 !important;
+	border-radius: 7px;
+}
+.button:disabled,
+.button:hover:disabled {
+  background-color: #898C93;
+  color: #F7F6F7;
+}

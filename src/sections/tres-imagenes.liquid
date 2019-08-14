@@ -1,0 +1,117 @@
+<div class="tres-imagenes" {{ section.settings.id }}>
+  
+  {% if section.settings.heading_seccion != blank %}
+    <h2 class="tit_full">{{ section.settings.heading_seccion | escape }}</h2>
+  {% endif %}
+
+  <div class="secc-tres-imagenes-grid-h">
+    {% for block in section.blocks %}
+      {%- comment -%}
+        Captura el markup de la imagen
+        Si no se declaró ninguna imagen despliega el svg default 
+      {%- endcomment -%}
+      {% capture image_layout %}
+        {% if block.settings.imagen != blank %}
+          {% include 'responsive-image' with
+            image: block.settings.imagen,
+            max_width: 545,
+            max_height: 545
+          %}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      {% endcapture %}
+      {%- comment -%}
+        Despliega la sección
+      {%- endcomment -%}
+      <div class="secc-tres-imagenes-grid-item">
+        <div class="secc-tres-imagenes-imagen">{{ image_layout }}</div>
+        {% if block.settings.column_title != blank %}
+          <h2 class="tit_tresimg1">{{ block.settings.column_title | escape }}</h2>
+        {% endif %}
+        <div class="secc-tres-imagenes-choro">{{ block.settings.legasi_html }}</div>
+        {% if block.settings.column_title_dos != blank %}
+          <h2 class="tit_tresimg1">{{ block.settings.column_title_dos }}</h2>
+        {% endif %}
+        {% if block.settings.button_label != blank %}
+          <a class="snm_a_button" href="{{ block.settings.button_link }}">
+            {{ block.settings.button_label | escape }}
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Tres Columnas",
+    "settings": [
+      {
+        "id": "id",
+        "type": "text",
+        "label": "Referencia iD"
+      },
+      {
+        "id":"heading_seccion",
+        "type":"text",
+        "label":"Header de la Sección",
+        "placeholder":"Título de la Sección",
+        "default":"¿Cómo Funciona LEGASI?"
+      }
+    ],
+    "blocks": [
+      {
+        "type":"columna",
+        "name":"una Columna",
+        "limit":4,
+        "settings": [
+          {
+            "id": "imagen",
+            "type": "image_picker",
+            "label": "Escoge una imagen"
+          },
+          {
+            "type": "text",
+            "id": "column_title",
+            "label": "Heading",
+            "default": "LEGASI Feature"
+          },
+          {
+            "type": "html",
+            "id": "legasi_html",
+            "label": "Agregar html LEGASI",
+            "default": "<p>Add your text here</p>"
+          },
+          {
+            "type": "text",
+            "id": "column_title_dos",
+            "label": "Second Heading",
+            "default": "Precio de Membresía: Gratuito"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"Legasi Features",
+        "category":"Asistencia eMovi"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

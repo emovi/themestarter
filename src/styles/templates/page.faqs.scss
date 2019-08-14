@@ -1,0 +1,32 @@
+#page-faqs main {
+	padding: 0 20px;
+}
+#page-faqs .tit_full {
+	margin: 0px;
+}
+#page-faqs .faqscontainer {
+	max-width: 700px;
+	margin:auto;
+}
+#page-faqs h2 {
+	margin:20px 0 5px 0;
+	border-bottom: solid 2px #17222D;
+}
+#page-faqs p {
+	margin:0;
+	text-align: justify;
+}
+#page-faqs .last {
+	height:30px;
+}
+@media screen and (max-width: 413px) {
+	#page-faqs main {
+		padding: 0 10px;
+	}
+	#page-faqs .tit_full {
+		padding: 0.5em;
+	}
+	#page-faqs h2 {
+		font-size: 1.2em;
+	}
+}
