@@ -8,7 +8,7 @@ body {
 	left:-20000px;
 }
 #svgintro {
-	width:360px;
+	width:120px;
 	height:120px; 
 }
 /***** Index Template CSS */
@@ -178,6 +178,12 @@ body {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+}
+.carved-elem {
+	padding: 10px;
+	color: #BEBEBE;
+	box-shadow: inset 1px 1px 1px 1px #000000;
+	background-image: linear-gradient(to right, rgba(0,0,0,0.25), rgba(0,0,0,0.2));
 }
 .snm-seccion-login {
 	width:100%;

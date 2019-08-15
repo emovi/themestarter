@@ -35,7 +35,7 @@
       <div class="h1">
     {% endif %}
         <a href="/" class="logo-image">
-          {% include 'logo-legasi' %}
+          {% include 'logo-svg' %}
         </a>
     {% if template.name == 'index' %}
       </h1>
@@ -126,6 +126,10 @@
   </style>
 {% endif %}
 
+{% comment %}
+  Establece las variables de la sección header que podrán ser editadas en 
+  a sección de Sections del Theme Editor
+{% endcomment %}
 {% schema %}
   {
     "name": "Header",

@@ -65,9 +65,9 @@ eG.despliegaMP = function(e) {
 
 $(function() {
 	console.log( "Document ready! Datos Globales: ", eG);
-	//Change logo-legasi
+	//Change logo-svg
 	if (eG.anchoViewport < 768) {
-		$('#svgintro').attr("viewBox","0 80 920 840");
+		$('#svgintro').attr("viewBox","0 0 200 200");
 		//Asigna callback desplegar menú en icono menúcollapsed
 		$("#menucollapsedsvg").on("click touchstart", eG.despliegaMP);
 	}
@@ -127,9 +127,9 @@ $(function() {
 	$(window).on("resize", function() {
 	    eG.recalcWinPars();
 	    if (eG.anchoViewport < 768) {
-			$('#svgintro').attr("viewBox","0 80 920 840");
+			$('#svgintro').attr("viewBox","0 0 200 200");
 		} else {
-			$('#svgintro').attr("viewBox","0 0 3005 1000");
+			$('#svgintro').attr("viewBox","0 0 200 200");
 		}
 	    //Asigna nueva altura a las secciones
 	    //$(".emovisecc").css("height",eG.altoMain); 

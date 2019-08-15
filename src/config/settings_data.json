@@ -34,7 +34,7 @@
     "checkout_accent_color": "#1990c6",
     "checkout_button_color": "#1990c6",
     "checkout_error_color": "#ff6d6d",
-    "color_primary": "#eb4f47",
+    "color_primary": "#2e333a",
     "color_header_text": "#e1c9b4",
     "color_primary_heading_text": "#4a4a4a",
     "color_primary_body_text": "#4a4a4a",
@@ -286,7 +286,7 @@
   },
   "presets": {
     "Warm": {
-      "color_primary": "#eb4f47",
+      "color_primary": "#2e333a",
       "color_header_text": "#e1c9b4",
       "color_primary_heading_text": "#4a4a4a",
       "color_primary_body_text": "#4a4a4a",

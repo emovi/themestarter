@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="{{ settings.color_accent }}">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
   <link rel="canonical" href="{{ canonical_url }}">
-  <meta name="google-site-verification" content="D8Y1U-OWvCvn1KNZw7opiIq_hnD73IUn7SIlRNUpePQ" />
+  <!--meta name="google-site-verification" content="D8Y1U-OWvCvn1KNZw7opiIq_hnD73IUn7SIlRNUpePQ" /-->
   <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/ScrollToPlugin.min.js"></script-->
   {% include 'style-tags', layout: 'theme' %}
 
   {%- if settings.favicon != blank -%}
@@ -29,7 +29,9 @@
       &ndash; {{ shop.name }}
     {%- endunless -%}
   {%- endcapture -%}
-  <title>LEGASI - Legado Seguro</title>
+  <title>
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
 
   {%- if page_description -%}
     <meta name="description" content="{{ page_description | escape }}">
@@ -53,7 +55,9 @@
   </script>
 
   {% include 'script-tags', layout: 'theme' %}
-
+  <style>
+    #preview-bar-iframe {display:none;}
+  </style>
   {{ content_for_header }}
 </head>
 
@@ -61,6 +65,9 @@
 <body id="{%- if template != "page.faqs" -%}{{ page_title | handle }}{%- else -%}{{ template | handleize }}{%- endif -%}" class="template-{{ template.name | handle }}">
   {% include 'definesvg' %}
   {% include 'snm-facebookInit' %}
+  {% if handle == 'discos-de-balance' %}
+    {% include 'pixel-discos' %}
+  {% endif %}
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
@@ -71,5 +78,7 @@
   </main>
 
   {% section 'footer' %}
+
+  {% include 'snm-showvars' with true %}
 </body>
 </html>
