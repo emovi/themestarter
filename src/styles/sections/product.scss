@@ -1,0 +1,105 @@
+#shopify-section-product {
+	margin:0;
+	padding:0;
+}
+.product-title {
+	background-color: #00ff00;
+}
+.product-page-vendor {
+	position: relative;
+	z-index: 9;
+	max-width: 1170px;
+	padding:15px;
+	margin:0px auto;
+	font-size:20px;
+	text-align: center;
+	background-color: var(--color-fisio-verde);
+	border-radius: 0px 0px 6px 6px;
+	box-shadow: var(--shadow-bottom-black);
+}
+.product-page-grid {
+	display: grid;
+	max-width: 1170px;
+	grid-template-columns: 500px  1fr;
+	grid-gap: 10px 10px;
+	padding:10px 10px;
+	margin: auto;
+	justify-items:center;
+	align-items: center;
+	/*justify-items: stretch;*/ 
+}
+#product-page-imagen-producto {
+	grid-column: 1;
+	grid-row: 1;
+	width:100%;
+}
+#product-page-form-social-links {
+	justify-self: stretch;
+	align-self: stretch;
+	grid-column: 2;
+	grid-row: 1;
+	display: grid;
+	grid-template-rows: 1fr 50px;
+	justify-items: center;
+	align-items: center;
+
+	.social-sharing {
+		color: var(--color-fisio-negro);
+		font-weight: 300;
+	}
+
+	a {
+		color: var(--color-fisio-negro);
+		margin-right:20px;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: var(--color-fisio-azul);
+		cursor: pointer;
+	}
+
+	a svg {
+		margin-right: 5px;
+		transform: scale(0.85);
+	}
+}
+#product-page-cart-form {
+	padding:10px;
+	grid-column: 1;
+	grid-row: 1;
+	
+	label {
+		display: block;
+		padding: 20px 0 5px 0;
+		font-weight: 300;
+	}
+}
+#product-page-thumbnails {
+	grid-column: 1 / 3;
+	grid-row: 2;
+	justify-self:start;
+	display: flex;
+	list-style: none;
+	padding:0px;
+}
+.product-single__thumbnail-image {
+  border: 2px solid transparent;
+
+  .active-thumbnail & {
+    border-color: $color-border;
+  }
+}
+#product-page-product-description {
+	grid-column: 1 / 3;
+	grid-row: 3;
+}
+#product-page-product-price {
+	padding:5px;
+	margin: 10px 0;
+
+	s {
+		color:#C60000;
+		margin-left:5px;
+	}
+}

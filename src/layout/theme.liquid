@@ -7,6 +7,8 @@
   <meta name="theme-color" content="{{ settings.color_primary }}">
   <link rel="canonical" href="{{ canonical_url }}">
   <!--meta name="google-site-verification" content="D8Y1U-OWvCvn1KNZw7opiIq_hnD73IUn7SIlRNUpePQ" /-->
+  <!--Roboto-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700|Roboto+Condensed" rel="stylesheet">
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <!--script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/ScrollToPlugin.min.js"></script-->
@@ -56,13 +58,14 @@
 
   {% include 'script-tags', layout: 'theme' %}
   <style>
+    /* Solo para desarrollo, quita el iframe de Slate Local */
     #preview-bar-iframe {display:none;}
   </style>
   {{ content_for_header }}
 </head>
 
 {%comment%}<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">{%endcomment%}
-<body id="{%- if template != "page.faqs" -%}{{ page_title | handle }}{%- else -%}{{ template | handleize }}{%- endif -%}" class="template-{{ template.name | handle }}">
+<body id="{{ template | handleize }}" class="template-{{ template.name | handle }}">
   {% include 'definesvg' %}
   {% include 'snm-facebookInit' %}
   {% if handle == 'discos-de-balance' %}
@@ -78,7 +81,10 @@
   </main>
 
   {% section 'footer' %}
-
-  {% include 'snm-showvars' with true %}
+  
+  {% include 'snm-fisio-widget' %}
+  {%- comment -%} Se presenta en Popup, en footer {%- endcomment -%}
+  {% include 'snm-showvars' with false %}
+  {% include 'popup-account-register' with true %}
 </body>
 </html>

@@ -1,0 +1,115 @@
+{% comment %}
+  En theme.liquid se asigna id="blog-emovi" al body del documento.
+  Usamos eso para direccionar CSS selectors
+{% endcomment%}
+<!-- Blog.emovi Template-->
+{% paginate blog.articles by 6 %}
+  
+  {%- assign blog_title = blog.title -%}
+
+  {% if current_tags %}
+    {% capture blog_title %}{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}{% endcapture %}
+  {% endif %}
+
+  {%- comment -%} Uncomment si quiero mostrar un submenú con los tags del Blog
+        <h1 class="tit_full">{{ blog_title }}</h1>
+          {% if blog.all_tags.size > 0 %}
+            <h2>Tags presentes en {{ blog_title }}</h2>
+
+            <ul>
+              {% for tag in blog.all_tags %}
+
+                {% if current_tags contains tag %}
+                  <li>{{ tag }}</li>
+                {% else %}
+                  <li>{{ tag | link_to_tag: tag }}</li>
+                {% endif %}
+
+              {% endfor %}
+            </ul>
+          {% endif %}
+  {%- endcomment -%}
+
+  <div class="blogcontainer">
+    {% comment %} Article Previews, cada loop es un artículo del Blog {% endcomment %}
+    {% for article in blog.articles %}
+      <div class="postcontainer">
+        {% comment %} Despliega el Título del artículo{% endcomment %}
+        <h3 class="post_tit">
+          <a href="{{ article.url }}">{{ article.title }}</a>
+        </h3>
+        
+        {%comment%} asigna la fecha de publicación del artículo 
+          {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+        {%endcomment%}
+
+        {%comment%} Despliega el autor y la fecha de publicación del artículo 
+          <p class="publicadoen">
+            {{ 'blogs.article.author_on_date_html' | t: author: article.author, date: date }}
+          </p>
+        {%endcomment%}
+
+        {%comment%} Despliega el número de comentarios y los tags, en caso de existir cualquiera 
+          {% if blog.comments_enabled? or article.tags.size > 0 %}
+            <ul class="commentsandtags">
+              {% if blog.comments_enabled? %}
+                <li>
+                  <a href="{{ article.url }}#comments">
+                    {{ 'blogs.comments.with_count' | t: count: article.comments_count }}
+                  </a>
+                </li>
+              {% endif %}
+
+              {% if article.tags.size > 0 %}
+                {% for tag in article.tags %}
+                  <li>
+                    <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+                    {% unless forloop.last %}, {% endunless %}
+                  </li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          {% endif %}
+        {%endcomment%}
+
+
+        {%comment%} Despliega la imagen del artículo, en caso de existir {%endcomment%}
+        {% if article.image %}
+          <a href="{{ article.url }}">
+            {% include 'responsive-image' with
+              image: article.image,
+              max_width: 1024,
+              max_height: 1024
+            %}
+          </a>
+        {% else %}
+          {%- comment -%} Svg placeolder {%- endcomment -%}
+          {{ 'collection-1' | placeholder_svg_tag }}
+        {% endif %}
+        
+        {%comment%} 
+            Despliega el extracto del artículo,
+            Si no existe, imprime las 100 primeras palabras del artículo.
+        {%endcomment%}
+        <div class="post_resumen">
+          {% if article.excerpt.size > 0 %}
+            {{ article.excerpt }}
+          {% else %}
+            <p>
+              {{ article.content | strip_html | truncatewords: 100 }}
+            </p>
+          {% endif %}
+        </div>
+        
+        {%comment%} Despliega el link al artículo {%endcomment%}
+        <a class="post_leermas" href="{{ article.url }}">Leer más &rarr;</a>
+        
+      </div><!--Termina postcontainer-->
+    {% endfor %}
+  </div><!--Termina blogcontainer-->
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+
+{% endpaginate %}

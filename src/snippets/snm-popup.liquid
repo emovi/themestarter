@@ -1,12 +1,13 @@
 {% if snm-popup  %}
-	<svg id="showPopup" ><use x="0" y="0" width="40" height="40" xlink:href="#show-popup"></use></svg>
-	<div id="popup-snm">
-		<div id="popback-snm">
-			<div id="popmain-snm">
-				<div id="popheader-snm">
-					<svg id="closepopup"><use x="0" y="0" width="40" height="40" xlink:href="#x-close"></use></svg>
-				</div>
-				<div id="popbody-snm">
+	<!-- Botón que despliega el popup vía JS -->
+	<svg class="showPopup" data-popup-id="popup-snm"><use x="0" y="0" width="40" height="40" xlink:href="#show-popup"></use></svg>
+	<!-- Popup Markup -->
+	<div id="popup-snm" class="popup-container">
+		<div class="popupback"><svg class="closepopup"><use x="0" y="0" width="40" height="40" xlink:href="#x-close"></use></svg></div>
+		<div class="popup-wrapper">
+			<div class="popup-main">
+				<div class="popup-header"></div>
+				<div class="popup-body">
 					{% include 'snm-showvars' with true %}
 				</div>
 			</div>

@@ -1,0 +1,19 @@
+{% if popup-account-register  %}
+	{%- comment -%} 
+		El Botón que despliega el popup vía JS está en header.liquid
+		FS-Section-header.sublime-workspace
+	{%- endcomment -%} 
+	
+	<!-- Popup Account Register Markup -->
+	<div id="popup-account-register" class="popup-container">
+		<div class="popupback"><svg class="closepopup"><use x="0" y="0" width="40" height="40" xlink:href="#x-close"></use></svg></div>
+		<div class="popup-wrapper">
+			<div class="popup-main">
+				<div class="popup-header"></div>
+				<div class="popup-body">
+					{% include 'snm-showvars' with true %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

@@ -1,122 +1,184 @@
-<div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
+<!-- /sections/product.liquid -->
+<div itemscope itemtype="http://schema.org/Product" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
+  <div itemscope itemtype="http://schema.org/Product">
 
-  {%- assign current_variant = product.selected_or_first_available_variant -%}
-  {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+    
+    {%- comment -%}
+      Current_variant es el objeto de la primer variante disponible del producto
+      featured_image es la imagen relacionada con la variante o la imagen Ppal del Producto
+    {%- endcomment -%}
+    {%- assign current_variant = product.selected_or_first_available_variant -%}
+    {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+    
+    <h1 class="tit_full">{{ product.title }}</h1>
+    <div class="product-page-vendor">Producto de: {{ product.vendor }}</div>
 
-  {% for image in product.images %}
-    {% capture wrapper_class %}
-      {%- unless featured_image == image -%}
-        hide
-      {%- endunless -%}
-    {% endcapture %}
+    <div class="product-page-grid">
+      
+      {%- comment -%} Despliega la imagen del producto {%- endcomment -%}
+      <div id="product-page-imagen-producto">
+        {%- comment -%} 
+          recorre todas las imagenes del producto
+          todas las cargadas en la sección images de la página del producto en la tienda
+        {%- endcomment -%}
+        {% for image in product.images %}
+          {% capture wrapper_class %}
+            {%- unless featured_image == image -%}
+              hide
+            {%- endunless -%}
+          {% endcapture %}
 
-    {% include 'responsive-image' with
-      image: image,
-      max_width: 700,
-      max_height: 800,
-      image_attributes: "data-product-featured-image",
-      wrapper_class: wrapper_class,
-      wrapper_attributes: "data-product-image-wrapper",
-    %}
-  {% endfor %}
+          {%- comment -%} incluye la imagen de acuerdo con responsive-image {%- endcomment -%}
+          {% include 'responsive-image' with
+            image: image,
+            max_width: 700,
+            max_height: 800,
+            image_attributes: "data-product-featured-image",
+            wrapper_class: wrapper_class,
+            wrapper_attributes: "data-product-image-wrapper",
+          %}
+        {% endfor %}
+      </div>
 
-  {% if product.images.size > 1 %}
-    <ul>
-      {% for image in product.images %}
-        <li>
-          <a href="{{ image.src | img_url: '480x480' }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail>
-            <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+      {%- comment -%} Despliega Forma de Carrito y Social Share links {%- endcomment -%}
+      <div id="product-page-form-social-links">
+        <form id="product-page-cart-form" action="/cart/add" method="post" enctype="multipart/form-data">
+          {% unless product.has_only_default_variant %}
+            {%- comment -%} 
+              Entra si el producto tiene más de una variante
+              Recorre todas las opciones de variantes, por ejemplo: medida, colores
+              Cada option de product.options_with_values es una variante
+            {%- endcomment -%}
+            {% for option in product.options_with_values %}
+              {%- comment -%}
+                Recorre un arreglo con las variantes del producto
+                Por cada variante genera un input tipo select con los 
+                valores de la variante. Por ejemplo:
+                <label for"variante-0">Color</label>
+                <select id="variante-0">
+                    <option value="AZUL" selected="selected">Azul</option>
+                    <option value="ROJO">ROJO</option>
+                    ...
+              {%- endcomment -%}
+              <div class="selector-wrapper js">
+                <label for="SingleOptionSelector-{{ forloop.index0 }}">
+                  {{ option.name }}
+                </label>
+                
 
-  <h1>{{ product.title }}</h1>
-  <p>{{ product.vendor }}</p>
+                {% if option.values.size == 1 %}
+                  {{ option.values[0]}}
+                {% else %}
+                  <select
+                    id="SingleOptionSelector-{{ forloop.index0 }}"
+                    data-single-option-selector
+                    data-index="option{{ option.position }}">
+                    {% for value in option.values %}
+                      <option
+                        value="{{ value | escape }}"
+                        {% if option.selected_value == value %}selected="selected"{% endif %}>
+                          {{ value }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% endunless %}
 
-
-  <form action="/cart/add" method="post" enctype="multipart/form-data">
-    {% unless product.has_only_default_variant %}
-      {% for option in product.options_with_values %}
-        <div class="selector-wrapper js">
-          <label for="SingleOptionSelector-{{ forloop.index0 }}">
-            {{ option.name }}
-          </label>
-
-          <select
-            id="SingleOptionSelector-{{ forloop.index0 }}"
-            data-single-option-selector
-            data-index="option{{ option.position }}">
-            {% for value in option.values %}
+          {%- comment -%}
+            Genera el input select cuando javascript está deshabilitado.
+            cuando javascript, display:none;
+          {%- endcomment -%}
+          <select name="id" class="no-js" data-product-select>
+            {% for variant in product.variants %}
+              {%- comment -%} Genera un option tag por cada variante del producto {%- endcomment -%}
               <option
-                value="{{ value | escape }}"
-                {% if option.selected_value == value %}selected="selected"{% endif %}>
-                  {{ value }}
+                {% if variant == current_variant %}selected="selected"{% endif %}
+                {% unless variant.available %}disabled="disabled"{% endunless %}
+                value="{{ variant.id }}">
+                  {{ variant.title }}
               </option>
             {% endfor %}
           </select>
-        </div>
-      {% endfor %}
-    {% endunless %}
 
-    <select name="id" class="no-js" data-product-select>
-      {% for variant in product.variants %}
-        <option
-          {% if variant == current_variant %}selected="selected"{% endif %}
-          {% unless variant.available %}disabled="disabled"{% endunless %}
-          value="{{ variant.id }}">
-            {{ variant.title }}
-        </option>
-      {% endfor %}
-    </select>
+          {%- comment -%}
+            Despliega el input para la cantidad de productos pedidos.
+          {%- endcomment -%}
+          <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+          <input type="number" id="Quantity" name="quantity" value="1" min="1">
 
-    <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
-    <input type="number" id="Quantity" name="quantity" value="1" min="1">
+          {%- comment -%}
+            Despliega el precio de la variante seleccionada
+            Si precio < compare at price, despliega precio normal tachado.
+          {%- endcomment -%}
+          <div id="product-page-product-price" data-price-wrapper>
+            <span data-product-price>
+              {{ current_variant.price | money }}
+            </span>
 
-    <div data-price-wrapper>
-      <span data-product-price>
-        {{ current_variant.price | money }}
-      </span>
+            {% if product.compare_at_price_max > product.price %}
+              <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+              <s data-compare-price>
+                {% if current_variant.compare_at_price > current_variant.price %}
+                  {{ current_variant.compare_at_price | money }}
+                {% endif %}
+              </s>
+            {% endif %}
+          </div>
 
-      {% if product.compare_at_price_max > product.price %}
-        <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-        <s data-compare-price>
-          {% if current_variant.compare_at_price > current_variant.price %}
-            {{ current_variant.compare_at_price | money }}
-          {% endif %}
-        </s>
+          {%- comment -%} Botón de Add to Cart. {%- endcomment -%}
+          <button
+            class="button"
+            type="submit"
+            name="add"
+            data-add-to-cart
+            {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+              <span data-add-to-cart-text>
+                {% if current_variant.available %}
+                  {{ 'products.product.add_to_cart' | t }}
+                {% else %}
+                  {{ 'products.product.sold_out' | t }}
+                {% endif %}
+              </span>
+          </button>
+        </form>
+
+        {%- comment -%} Social Sharing Links {%- endcomment -%}
+        {% if section.settings.show_share_buttons %}
+            {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+        {% endif %}
+      </div>
+      
+      {%- comment -%} Genera la ul de los Thumbnails del producto {%- endcomment -%}
+      {% if product.images.size > 1 %}
+        <ul id="product-page-thumbnails">
+          {% for image in product.images %}
+            <li>
+              <a href="{{ image.src | img_url: '480x480' }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail>
+                <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
       {% endif %}
-    </div>
 
-    <button
-      type="submit"
-      name="add"
-      data-add-to-cart
-      {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-        <span data-add-to-cart-text>
-          {% if current_variant.available %}
-            {{ 'products.product.add_to_cart' | t }}
-          {% else %}
-            {{ 'products.product.sold_out' | t }}
-          {% endif %}
-        </span>
-    </button>
-  </form>
+      {%- comment -%} Despliega la descripción del Producto {%- endcomment -%}
+      <div id="product-page-product-description" class="rte">
+        {{ product.description }}
+      </div>
 
-  <div class="rte">
-    {{ product.description }}
+    </div>{%- comment -%} termina product-page-grid {%- endcomment -%}
+
+    {% unless product == empty %}
+      <script type="application/json" data-product-json>
+        {{ product | json }}
+      </script>
+    {% endunless %} 
+
   </div>
-
-  {% if section.settings.show_share_buttons %}
-    {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
-  {% endif %}
-
-  {% unless product == empty %}
-    <script type="application/json" data-product-json>
-      {{ product | json }}
-    </script>
-  {% endunless %}
 </div>
 
 {% schema %}

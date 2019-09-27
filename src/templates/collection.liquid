@@ -1,11 +1,27 @@
-{% paginate collection.products by 12 %}
-  <header role="banner">
-    <h1>{{ collection.title }}</h1>
+{% paginate collection.products by 16 %}
+{%- comment -%} 
+  collection.products regresa todos los productos de una colección
+  Solo se pueden manejar hasta 50 productos por cada página en shopify
+  Por eso hay que usar el tag paginate
+{%- endcomment -%}
+
+  <header class="coll-header" role="banner">
+    <h1 class="tit_full">{{ collection.title }}</h1>
     {% if collection.description != blank %}
-      <div class="rte">
+      <div class="coll-description">
         {{ collection.description }}
       </div>
     {% endif %}
+
+    {%- comment -%}
+      El if comentado sirve para desplegar un submenu con los tags de la 
+      colección.
+      Entra si existen tags dentro de la colección
+      all_tags.size nos da el número de tags en la colección
+      Size es un filter que se puede usar como dot notation
+      Inside collection.liquid, current_tags contains 
+      all product tags that are used to filter a collection.
+      Uncomment para desplegar navegación por tags 
 
     {% if collection.all_tags.size > 0 %}
       <ul>
@@ -22,55 +38,102 @@
         {% endfor %}
       </ul>
     {% endif %}
+    {%- endcomment -%}
   </header>
 
-  <div>
+  <div class="product-grid">
     {% for product in collection.products %}
-      <div>
+      {%- comment -%} 
+        cada iteración es un producto de la colección, sus datos en product
+        https://help.shopify.com/en/themes/liquid/objects/product
+      {%- endcomment -%}
+
+      {%- comment -%} Revisa si el producto tiene descuento {%- endcomment -%}
+      {% assign on_sale = false %}
+      {% if product.compare_at_price > product.price %}
+        {% assign on_sale = true %}
+        {% capture monto_ahorro %}{{ product.compare_at_price | minus: product.price | money_without_trailing_zeros }}{% endcapture %}
+      {% endif %}
+      
+      {%- comment -%} Revisa existencias del producto {%- endcomment -%}
+      {% assign sold_out = true %}
+      {% if product.available %}
+        {% assign sold_out = false %}
+      {% endif %}
+      
+      {%- comment -%} 
+        Si el producto está agotado o si está en oferta:
+        - show_product_tag = true
+        - crea un span con la clase correspondiente
+      {%- endcomment -%}
+      {% assign show_product_tag = false %}
+      
+      {% capture product_tag %}
+        {% if sold_out %}
+          {% assign show_product_tag = true %}
+          <span class="grid-product__sold-out">Agotado</span>
+        {% elsif on_sale %}
+          {% assign show_product_tag = true %}
+          <span class="grid-product__on-sale">Ahorra<br>{{ monto_ahorro }}</span>
+        {% endif %}
+      {% endcapture %}
+      
+      {%- comment -%} div de cada producto {%- endcomment -%}
+      <div class="product-grid-item">
+        {%- comment -%} Despliega product tag {%- endcomment -%}
+        {% if show_product_tag %}
+          {{ product_tag }}
+        {% endif %}
+
         {% if product.featured_image != blank %}
-          <a href="{{ product.url | within: collection }}">
+          <a class="product-item-image" href="{{ product.url | within: collection }}">
             {% include 'responsive-image' with
               image: product.featured_image,
               max_width: 700,
               max_height: 800
             %}
           </a>
+        {% else %}
+          {{ 'collection-1' | placeholder_svg_tag: 'noimagevsg' }}
         {% endif %}
 
-        <p>
+        <p class="product-item-title">
           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
         </p>
-        <p>
-          {% if product.compare_at_price > product.price %}
+        
+        {%- comment -%}
+          <p>
+            {% if product.compare_at_price > product.price %}
 
-            {% if product.price_varies %}
-              {%- assign sale_price = product.price | money -%}
-              {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+              {% if product.price_varies %}
+                {%- assign sale_price = product.price | money -%}
+                {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+              {% else %}
+                {{ 'products.product.on_sale' | t }}
+                {{ product.price | money }}
+              {% endif %}
+
             {% else %}
-              {{ 'products.product.on_sale' | t }}
-              {{ product.price | money }}
+
+              {% if product.price_varies %}
+                {%- assign price = product.price | money -%}
+                {{ 'products.product.from_text_html' | t: price: price }}
+              {% else %}
+                {{ product.price | money }}
+              {% endif %}
+
             {% endif %}
 
-          {% else %}
-
-            {% if product.price_varies %}
-              {%- assign price = product.price | money -%}
-              {{ 'products.product.from_text_html' | t: price: price }}
-            {% else %}
-              {{ product.price | money }}
+            {% if product.compare_at_price > product.price %}
+              <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+              <s>{{ product.compare_at_price | money }}</s>
             {% endif %}
 
-          {% endif %}
-
-          {% if product.compare_at_price > product.price %}
-            <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-            <s>{{ product.compare_at_price | money }}</s>
-          {% endif %}
-
-          {% unless product.available %}
-            {{ 'products.product.sold_out' | t }}
-          {% endunless %}
-        </p>
+            {% unless product.available %}
+              {{ 'products.product.sold_out' | t }}
+            {% endunless %}
+          </p>
+        {%- endcomment -%}
       </div>
 
     {% else %}

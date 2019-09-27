@@ -13,7 +13,7 @@
 <section data-section-id="{{ section.id }}" data-section-type="header">
   {%- comment -%}Despliega barra de anuncios{%- endcomment -%}
   {%- if section.settings.announcement_bar_enabled -%}
-    <div>
+    <div id="barra-anuncios" class="carved-elem">
       {%- if section.settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
         {%- if section.settings.announcement_bar_link != blank -%}
           <a href="{{ section.settings.announcement_bar_link }}">
@@ -29,36 +29,27 @@
   {%- comment -%}Despliega Header{%- endcomment -%}
   <header id="emovi-header" role="banner">
     {%- comment -%}Despliega logo en header{%- endcomment -%}
-    {% if template.name == 'index' %}
-      <h1>
-    {% else %}
-      <div class="h1">
-    {% endif %}
+      <div class="h1" itemscope itemtype="http://schema.org/Organization">
         <a href="/" class="logo-image">
           {% include 'logo-svg' %}
         </a>
-    {% if template.name == 'index' %}
-      </h1>
-    {% else %}
       </div>
-    {% endif %}
     
     {%- comment -%}Despliega barra de navegación{%- endcomment -%}
     <nav role="navigation" id="menuwrap">
       <svg id="menucollapsedsvg">
-          <use x="0" y="0" xlink:href="#menucollapsed"/>
-        </svg>
+        <use x="0" y="0" xlink:href="#menucollapsed"/>
+      </svg>
       <ul id="menulist">
-        <li><a href="/">Inicio</a></li>
-        {%- comment -%}Este for despliega todos los links en menu-navegación del theme-editor {%- endcomment -%}
-        {% for link in linklists[section.settings.menu].links %}
-          {% if link.links != blank %}
-            <li>
+        {%- comment -%}Este for despliega los menu items del menu principal {%- endcomment -%}
+        {% for link in linklists.main-menu.links %} {%- comment -%} Recorre los menu items de Menu Ppal {%- endcomment -%}
+          {% if link.links != blank %}{%- comment -%}Entra si el menu item se trata de un dropdown menu{%- endcomment -%}
+            <li class="dd-nivel1">{%- comment -%} cada li de estas es un menu item Drop Down de primer nivel {%- endcomment -%}
               <a href="{{ link.url }}">
                 {{ link.title }}
                 {% include 'icon-arrow-down' %}
               </a>
-              <ul>
+              <ul class="dd-nivel2">{%- comment -%} menu Drop Down segundo nivel {%- endcomment -%}
                 {% for childlink in link.links %}
                   <li>
                     <a href="{{ childlink.url }}">
@@ -68,7 +59,7 @@
                 {% endfor %}
               </ul>
             </li>
-          {% else %}
+          {% else %}{%- comment -%}Entra si NO se trata de un dropdown menu{%- endcomment -%}
             <li>
               <a href="{{ link.url }}">
                 {{ link.title }}
@@ -76,56 +67,43 @@
             </li>
           {% endif %}
         {% endfor %}
+
         {%- comment -%}Despliega links/opciones de usuarios{%- endcomment -%}
         {% if shop.customer_accounts_enabled %}
-            {% if customer %} {%comment%} Entra si hay un cliente loggeado {%endcomment%}
-              <li>
-                {% if customer.id != blank %}
-                  <a href="/pages/emovicors">Bóveda: {{ customer.id }}</a>
-                {% else %}
-                  <a href="/">Call 911</a>
-                {% endif %}
-              </li>
-              <li>
-                {%comment%} Entra si hay un cliente loggeado, despliega Cerrar sesión {%endcomment%}
-                {{ 'layout.customer.log_out' | t | customer_logout_link }}
-              </li>
-            {% else %}
-              <li>
-                {%comment%} Entra si no hay un cliente loggeado, despliega ingresar {%endcomment%}
-                {{ 'layout.customer.log_in' | t | customer_login_link }}
-              </li>
-              {%comment%} Para desplegar el customer_register_link uncomment este li
-              <li>
-                 Entra si no hay un cliente loggeado, despliega Crear cuenta 
-                {{ 'layout.customer.create_account' | t | customer_register_link }}
-              </li>
-              {%endcomment%}
-            {% endif %}
+          {% if customer %} {%comment%} Entra si hay un cliente loggeado {%endcomment%}
+            {%- comment -%} Menu item Despliega Bóveda {%- endcomment -%}
+            <li>
+              {{ 'layout.customer.account' | t }}
+            </li>
+            <li>
+            {%comment%} Menu Item Cerrar sesión {%endcomment%}
+              Cerrar Sesión
+            </li>
+          {% else %}
+            {%comment%} Entra si no hay un cliente loggeado, despliega ingresar {%endcomment%}
+            <li>
+              {% include 'icon-fisio-users' %}
+            </li>
+            {%comment%} Para desplegar el customer_register_link uncomment este li
+            <li>
+            Entra si no hay un cliente loggeado, despliega Crear cuenta 
+            {{ 'layout.customer.create_account' | t | customer_register_link }}
+            </li>
+            {%endcomment%}
+          {% endif %}
         {% endif %}
-        {% comment %}
-          <li>
-            <a href="/cart">
-              {% include 'icon-cart' %}
-              {{ cart.item_count }}
-            </a>
-          </li>
-        {% endcomment %}
-      </ul>
-  </nav>
 
+        {%- comment -%} Despliega carrito de compras {%- endcomment -%}
+        <li>
+          <a href="/cart">
+            {% include 'icon-cart' with true %}
+            {{ cart.item_count }}
+          </a>
+        </li>
+      </ul>
+    </nav>
   </header>
 </section>
-
-{% if section.settings.logo != blank %}
-  <style>
-    .logo-image {
-      display: block;
-      max-width: {{ section.settings.logo_max_width }}px;
-    }
-  </style>
-{% endif %}
-
 {% comment %}
   Establece las variables de la sección header que podrán ser editadas en 
   a sección de Sections del Theme Editor

@@ -1,0 +1,86 @@
+.cartwrapper {
+	max-width:1170px;
+	margin:auto;
+	padding:0px 15px;
+}
+.cartgrid {
+	display: grid;
+	grid-template-columns: 3fr 1fr 1fr 1fr;
+	grid-template-rows: auto;
+	grid-template-areas:
+		"header header header header"
+		". . . ."
+		". . subtotal-subtotal subtotal-monto";
+	justify-items: center;
+	align-items: center;
+	grid-gap: 10px;
+}
+.cartheader {
+	grid-area: header;
+	width:100%;
+	display: flex;
+	justify-content: space-around;
+	align-content: stretch;
+	background-color: var(--color-fisio-verde);
+	box-shadow: var(--shadow-bottom-black);
+}
+.cartheader p {
+	flex: 1;
+	text-align: center;
+	font-weight: 800;
+}
+.cartheader :first-child {
+	flex: 3;
+}
+.product-data {
+	display: grid;
+	grid-template-columns: 240px 1fr;
+	justify-items: center;
+	align-items: center;
+	width: 100%;
+	img {
+		box-shadow: var(--shadow-bottom-black);
+	}
+}
+.product-info {
+	padding: 10px;
+	text-align: center;
+}
+.product-cantidad {
+	max-width: 80px;
+}
+.product-subt {
+	grid-column: 3;
+}
+.product-subt-mto {
+	grid-column: 4;
+}
+.cartwrapper textarea {
+	width: 50%;
+	margin:auto;
+}
+.cartwrapper label {
+	display: block;
+	width: 100%;
+}
+.cart-instrucciones {
+	width:100%;
+	padding:20px 0px;
+	text-align: center;
+	background-color: var(--color-fisio-verde);
+	box-shadow: var(--shadow-bottom-black);
+	input {
+		margin: 10px 20px;
+	}
+}
+.cart-noproductos {
+	min-height: 40vh;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color-fisio-verde);
+	box-shadow: var(--shadow-bottom-black);
+	p {
+		text-align: center;
+	}
+}

@@ -9,12 +9,19 @@
 <section class="collection-list">
   {% if section.settings.title != blank %}
     <h2 class="collection-list__title">{{ section.settings.title | escape }}</h2>
+  {% else %}
+    <h2 class="collection-list__title">Productos Fisiotleta</h2>
   {% endif %}
 
+  {%- comment -%} 
+    Recorre los blocks definidos por el theme editor
+    Por cada iteración guarda en collection el handle de la colección correspondiente
+    url del objeto cllection https://help.shopify.com/en/themes/liquid/objects/collection
+  {%- endcomment -%}
   {% for block in section.blocks %}
     {%- assign collection = collections[block.settings.collection] -%}
 
-    <a href="{{ collection.url | default: "#" }}" class="collection-list-item" {{ block.shopify_attributes }}>
+    <a href="{{ collection.url | default: "#" }}" class="collection-list-item">
       {% if collection.image != blank or collection.products.first != blank %}
         {%- assign image_object = collection.image | default: collection.products.first.featured_image -%}
         <div class="collection-list__image">
@@ -28,9 +35,6 @@
         {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
         {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
       {% endif %}
-
-      {%- assign default_label = 'homepage.onboarding.collection_title' | t -%}
-      <p>{{ collection.title | default: default_label }}</p>
     </a>
   {% endfor %}
 
@@ -42,6 +46,7 @@
 {% schema %}
   {
     "name": "Collection list",
+    "class": "collection-list-section",
     "max_blocks": 12,
     "settings": [
       {

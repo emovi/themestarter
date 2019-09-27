@@ -1,0 +1,51 @@
+#page-contact #MainContent {
+	color: #f6f6f6;
+	padding-bottom: 30px;
+	/*background-image: url(https://cdn.shopify.com/s/files/1/2233/4291/files/contactbck_2000x2000_72_0.jpg);
+	background-size: cover;
+	background-position: center center;*/
+}
+#page-contact .contactwrapper {
+	max-width: 1770px;
+	text-align: center;
+	margin:auto;
+}
+#page-contact hr {
+	max-width: 1770px;
+	margin:20px auto;
+}
+#page-contact .contactformwrapper {
+	width:600px;
+	padding:20px;
+	margin:auto;
+	text-shadow: 1px 1px 2px #000;
+	background-color: rgba(0, 0, 0, 0.35);
+}
+#page-contact input,
+#page-contact textarea {
+	display: block;
+	width:100%;
+	padding:10px;
+	margin-bottom: 20px;
+	box-shadow: var(--shadow-bottom-black);
+}
+#page-contact label {
+	display: none;
+	margin-bottom: 20px;
+}
+#page-contact .btn {
+	background-color: #047BD8;
+}
+#page-contact .cellink {
+	text-decoration: none;
+}
+#page-contact .cellink span {
+	color: #B3E93C !important;
+	font-weight: 800;
+	border-bottom: #B3E93C 1px solid;
+}
+#page-contact .cellink span:hover {
+	color: #FF804E !important;
+	font-weight: 800;
+	border-bottom: #FF804E 1px solid;
+}

@@ -4,11 +4,22 @@
 
   {%- assign font_body_bold = settings.font_body | font_modify: 'weight', 'bolder' -%}
   {%- assign font_body_bold_italic = font_body_bold | font_modify: 'style', 'italic' -%}
+  {%- assign shadow_bottom_black = '0px 7px 10px -3px #000000' -%}
 
   {{ font_body_bold | font_face }}
   {{ font_body_bold_italic | font_face }}
 
   :root {
+    --color-fisio-azul: {{ settings.color_fisio_azul }};
+    --color-fisio-verde: {{ settings.color_fisio_verde }};
+    --color-fisio-negro: {{ settings.color_fisio_negro }};
+    --color-fisio-kinesio: {{ settings.color_fisio_kinesio }};
+    --color-fisio-gris-claro: {{ settings.color_fisio_gris_claro }};
+    --color-legasi-azul: {{ settings.color_legasi_azul }};
+    --color-legasi-gris: {{ settings.color_legasi_gris }};
+    
+    --shadow-bottom-black: {{ shadow_bottom_black }};
+
     --color-accent: {{ settings.color_accent }};
     --color-body-text: {{ settings.color_body_text }};
     --color-main-background: {{ settings.color_main_bg }};

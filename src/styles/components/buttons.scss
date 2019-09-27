@@ -12,16 +12,30 @@
   padding:10px;
   margin-bottom: 10px;
   color: #BEBEBE;
-  background-color: #17222D;
+  background-color: var(--color-legasi-azul);
   font-size:16px;
   border-radius: 6px;
 }
 .button:hover:enabled {
-	color: #1C5795 !important;
+	color: var(--color-fisio-azul) !important;
 	border-radius: 7px;
 }
 .button:disabled,
 .button:hover:disabled {
   background-color: #898C93;
   color: #F7F6F7;
+}
+.snm_a_button {
+  padding:10px;
+  margin-bottom: 10px;
+  color: #BEBEBE;
+  background-color: #17222D;
+  text-align: center;
+  border-radius: 6px;
+  max-width: 50%;
+  text-decoration: none;
+}
+.snm_a_button:hover {
+  color: #1C5795;
+  padding:11px;
 }

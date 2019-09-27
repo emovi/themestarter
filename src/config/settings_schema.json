@@ -1,34 +1,61 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "LEGASI theme",
+    "theme_name": "Fisiotleta theme",
     "theme_version": "1.0.0",
-    "theme_author": "Sergio Navarrito",
-    "theme_documentation_url": "https:\/\/github.com\/Shopify\/starter-theme",
-    "theme_support_email": "soporte@legasi.mx",
-    "theme_packaged_with": "@shopify\/slate-tools@1.0.0-beta.5"
+    "theme_author": "Sergio Navarro",
+    "theme_documentation_url": "https:\/\/github.com\/emovi\/themestarter",
+    "theme_support_email": "contacto@snavarro.mx",
+    "theme_packaged_with": "@shopify\/slate-tools@1.0.0-beta.14"
   },
   {
     "name": "Colors",
     "settings": [
       {
-        "type": "color",
-        "id": "color_accent",
-        "label": "Accent",
-        "default": "#c4cdd5",
-        "info": "Buttons and special ornaments"
+        "type": "header",
+        "content": "eMovi"
       },
       {
         "type": "color",
-        "id": "color_body_text",
-        "label": "Text",
-        "default": "#161d25"
+        "id": "color_fisio_verde",
+        "label": "Verde fisio",
+        "default": "#B3E94C"
       },
       {
         "type": "color",
-        "id": "color_main_bg",
-        "label": "Background",
-        "default": "#fff"
+        "id": "color_fisio_azul",
+        "label": "Azul fisio",
+        "default": "#005AB4"
+      },
+    {
+        "type": "color",
+        "id": "color_fisio_negro",
+        "label": "Negro fisio",
+        "default": "#121213"
+      },
+      {
+        "type": "color",
+        "id": "color_fisio_kinesio",
+        "label": "Azul Kinesio fisio",
+        "default": "#011280"
+      },
+      {
+        "type": "color",
+        "id": "color_fisio_gris_claro",
+        "label": "Gris Claro fisio",
+        "default": "#9FA5B8"
+      },
+      {
+        "type": "color",
+        "id": "color_legasi_azul",
+        "label": "Azul oscuro Legasi",
+        "default": "#17222D"
+      },
+      {
+        "type": "color",
+        "id": "color_legasi_gris",
+        "label": "Gris contraste Legasi",
+        "default": "#434855"
       }
     ]
   },

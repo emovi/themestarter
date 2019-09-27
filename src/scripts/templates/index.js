@@ -14,9 +14,9 @@ console.log("Solo en Index gralito: ", eG);
 eG.creaSlider = function() {
 	var i = 0;
 	eG.sliderTimer = null;
-	eG.numSlides = 3;
+	eG.numSlides = 4;
 	//Duration de cada slide
-	eG.waitSlides= [10000, 10000, 10000];
+	eG.waitSlides= [10000, 10000, 10000, 10000];
 	//Crea HTML
     for(i = 1; i <= eG.numSlides ; i++) {
         //Crea elementos del slide
@@ -31,13 +31,16 @@ eG.creaSlider = function() {
     	switch(i) {
     		//Incluye Textos de captions
         case 1:
-            $("#slidecapt1").html("<p>El que habla a través de su legado, puede confiar en ser escuchado</p>");
+            $("#slidecapt1").html("<p>Envíos a toda la república.</p>");
             break;
         case 2:
-        	$("#slidecapt2").html("<p>La vida ha sido una aventura, no olvides dejar instrucciones</p>");
+        	$("#slidecapt2").html("<p>Compra fácil, rápida y segura.</p>");
             break;
         case 3:
-            $("#slidecapt3").html("<p>Un legado claro es para el heredero, como el mapa para el viajero</p>");
+            $("#slidecapt3").html("<p>Entra a nuestro grupo, entérate de nuestras promociones.</p>");
+            break;
+        case 4:
+            $("#slidecapt4").html("<p>Fisiotleta. Contigo hasta la meta.</p>");
             break;
         default:
         	break;
@@ -115,12 +118,22 @@ $(function() {
 			}); //Termina addeventlistener visibilitychange
 	eG.creaSlider();
 	//Asigna altura main a elemento #emovislider
-    $("#emovi-slider").css("height", eG.altoMain);
+    //$("#emovi-slider").css("height", eG.altoMain);
     //Asigna altura mínima a secciones shopify
     $(".shopify-section").each(function(i, elem){
+        var excluyeSecciones = [
+                                    "shopify-section-header",
+                                    "shopify-section-footer",
+                                    "shopify-section-newsletter",
+                                ];
+
         var seccion = elem.getAttribute("id");
+        //notExcluded = true si el id de la sección no está en el Array excluyeSecciones 
+        //              y la clase de la sección no incluye collection-list-section
+        var notExcluded = ! (excluyeSecciones.includes(seccion) || this.classList.contains("collection-list-section"));
+
         console.log(i + ' ' + elem);
-        if ( seccion != 'shopify-section-header' && seccion != 'shopify-section-footer' ) {
+        if ( notExcluded ) {
             $(this).css({
                     "min-height": eG.altoMain + "px",
                     "display":"flex",

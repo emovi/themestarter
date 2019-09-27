@@ -1,0 +1,54 @@
+.fisio-contact-wrapper {
+	/*background-color: rgba(0, 255, 0, 0.5);*/
+	margin: 0 !important;
+	padding: 0 !important;
+	position: fixed !important;
+	z-index: 200 !important;
+	left:24px;
+	bottom: 13px !important;
+	text-align: center !important;
+	height: 70px;
+	width: 70px;
+	visibility: visible;
+	transition: none !important;
+}
+#fisiowidget-faqs {
+	cursor: pointer;
+	position:absolute;
+	left:0;
+	bottom:0px;
+	/*width y height iguales a width de contact wrapper*/
+	height:70px;
+	width:70px;
+	z-index:201;
+	overflow: visible !important;
+}
+.faqs-flyer {
+	cursor: pointer;
+	position:absolute;
+	left:10px;
+	bottom:0px;
+	/*width y height iguales a width de contact wrapper*/
+	height:50px;
+	width:50px;
+	opacity:0;
+	overflow: visible !important;
+}
+#criscross {
+	opacity:0;
+}
+.nelcross {
+	opacity:1;
+}
+/* Contact Widget Tooltip text */
+.faqs-flyer .tooltiptext {
+	visibility: hidden;
+	font-size: 40px;
+	font-weight: 400;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 3px #000;
+}
+.faqs-flyer:hover .tooltiptext {
+	/* Show the tooltip text when you mouse over the tooltip container */
+    visibility: visible;
+}

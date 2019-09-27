@@ -1,6 +1,6 @@
 {% if snm-showvars  %}
-	<p style='background:#f1c40f; padding: 1em; font-weight: bold; color: #222'>
-		Current template: {{ template}}.liquid <br>
+	<p style='background:#f1c40f; padding: 1em; font-weight: bold; color: #222;'>
+		Current templeit: {{ template}}.liquid <br>
 		Template | handleize: {{ template | handleize }} <br>
 		Current handle: {{ handle }} <br>
 		Page Title: {{ page_title }} <br>
@@ -20,7 +20,86 @@
 		{% else %}
 			<b>Customer is not logged in. Customer's info is not available </b><br>
 		{% endif %}
-		section.settings.button_link:{{section.settings.button_link}}  <br>
+		<br>
+		section.settings.logo:{{section.settings.logo}}
+		section.settings.button_link:{{section.settings.button_link}}
+		<br>
 	</p>
-	<br><br><br><br><br>
+	<br><br>
+	<div style='background:#00CCFF; padding: 30px; font-weight: bold; color: #222;'>
+		{% if false %}
+			'Product id: ' {{ all_products[section.settings.product].id }}
+		{% endif %}
+
+
+		{% if false %}
+			{%comment%}
+				Inicia Revisión de links y menus
+				linklists es un objeto que tiene el conjunto de
+				objetos linklist en la página
+			{%endcomment%}
+			<ul>
+				{% for liga in  linklists.main-menu.links %}
+				{%comment%}liga es un array de objetos linklist{%endcomment%}
+					<li>{{ liga.title | link_to : liga.url }}</li>
+				{% endfor %}
+			</ul>
+			<ul>
+				{% for liga in  linklists %}
+				{%comment%}liga es un array de objetos linklist{%endcomment%}
+					<li>
+						{{ liga.title | link_to : liga.url }}<br>
+						menu title: {{ liga.title }}<br>
+						menu handle: {{ liga.handle }}
+						<ul>
+							{% for yupi in liga.links %}
+								<li>
+									{{ yupi.type }}
+								</li>
+							{%endfor%}
+						</ul>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+
+		{% if false %}
+			{%- comment -%} 
+				Entra si el producto tiene más de una variante
+				Recorre todas las opciones de variantes, por ejemplo: medida, colores
+			{%- endcomment -%}
+			{% for option in product.options_with_values %}
+				{%- comment -%} 
+					Recorre un arreglo con las opciones del producto
+					Cada Opción es una Variante, i.e. 
+				{%- endcomment -%}
+				Option Name: {{ option.name }}<br>
+				Option Position: {{ option.position }}<br>
+				forloop index: {{ forloop.index0 }}<br>
+				Option values: {{ option.values | size }}<br>
+				{% if option.values.size == 1 %} Otion Values es uno {% else %} Otion Values es más de uno {% endif %}<br><br>
+				{% for value in option.values %}
+					<span style='margin:0px 10px;'>forloop indexIn: {{ forloop.index0 }}<br></span>
+					<span style='margin:0px 10px;'>Option Position: {{ option.position }}<br></span>
+					<span style='margin:0px 10px;'>value Escape: "{{ value | escape }}"</span><br>
+					<span style='margin:0px 10px;'>value: {{ value }}</span><br>
+					<span style='margin:0px 10px;'>Option Selected Value: {{option.selected_value}}</span><br><br>
+				{% endfor %}
+			{% endfor %}
+	    {% endif %}
+
+	    {%- comment -%} Blog Info {%- endcomment -%}
+	    {% if true %}
+	    	<p>Blog.title = {{blog.title}}</p>
+	    	<p>Simple input box</p>
+			<input type="text" value="Type here">
+	    	{% if current_tags %}
+			    Sí hay current_tags
+			{% else %}
+				No hay current_tags
+			{% endif %}
+	    {% endif %}
+		<br><br><br>
+	</div>
 {% endif %}

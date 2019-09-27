@@ -1,0 +1,36 @@
+.template-collection {
+	/* CSS para collection Template */
+	color: var(--color-fisio-negro);
+}
+.coll-header {
+	position: relative;
+	z-index: 10;
+}
+.coll-header .tit_full {
+	color: var(--color-fisio-gris-claro);
+}
+.coll-description {
+	max-width: 1170px;
+	padding:15px;
+	margin:0px auto;
+	font-size:20px;
+	background-color: var(--color-fisio-verde);
+	border-radius: 0px 0px 6px 6px;
+	box-shadow: var(--shadow-bottom-black);
+}
+@media screen and (max-width: 1199px) {
+	.coll-description {
+		max-width: 970px;
+	}
+}
+@media screen and (max-width: 991px) {
+	.coll-description {
+		max-width: 720px;
+	}
+}
+@media screen and (max-width: 991px) {
+	.coll-description {
+		width: calc(100% - 20px);
+		margin:auto;
+	}
+}

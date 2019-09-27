@@ -1,0 +1,10 @@
+<ul class="tooltip-hor-menu">
+  {% for item in  linklists.footer.links %}
+  	<li>
+  		<a class="tooltip" title="{{ item.title }}" href="{{ item.url }}">
+  			{{ item.title }}
+  			<span class="tooltiptext">{{ item.title }}</span>
+  		</a>
+    </li>
+  {% endfor %}
+</ul>

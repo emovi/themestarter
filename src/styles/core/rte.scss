@@ -17,6 +17,10 @@
   strong {
     font-weight: $font-body-bold-weight;
   }
+
+  p {
+    text-align: justify;
+  }
 }
 
 // Allow table to scroll for tables in the RTE since we don't know

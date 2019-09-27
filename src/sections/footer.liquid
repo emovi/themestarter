@@ -1,6 +1,7 @@
 {%- assign social_icons = false -%}
 {%- assign menu_enabled = false -%}
 
+{%- comment -%} social_icons es true si existen social media links o si el template es blog o article  {%- endcomment -%}
 {% if
   settings.social_twitter_link != blank
   or settings.social_facebook_link != blank
@@ -16,6 +17,7 @@
   {%- assign social_icons = true -%}
 {% endif %}
 
+{%- comment -%} menu_enabled = true si existen footer menús {%- endcomment -%}
 {%- for block in section.blocks -%}
   {%- if block.type == 'menu' -%}
     {%- assign menu_enabled = true -%}
@@ -26,11 +28,25 @@
       <div class="medialist">
         {% include 'snm-social-links' %}
       </div>
+      <div class="legalist">
+        {% include 'snm-footer-menu' %}
+      </div>
       <div class="emovi-footer_derechos">
-        <small>Derechos de Autor &copy; {{ 'now' | date: "%Y" }},  LEGASI.</small>
-        <small>Desarrollo Web eMovilidad</small>
-        <a href="/pages/politica-de-privacidad-legasi"><small>Aviso de privacidad</small></a>
-        <a href="/pages/terminos-y-condiciones-de-uso"><small>Términos y Condiciones de Uso</small></a>
+        {% unless shop.enabled_payment_types == empty %} 
+        {%- comment -%} Despliega iconos de formas de pago {%- endcomment -%}
+          {% assign payment_icons_available = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' %}
+          <ul class="payment-icons-footer-list">
+            <li><svg class="snm-icon" width="30" height="30" ><use xlink:href="#amexcard"></use></svg></li>
+            <li><svg class="snm-icon" width="30" height="30" ><use xlink:href="#visacard"></use></svg></li>
+            <li><svg class="snm-icon" width="30" height="30" ><use xlink:href="#mastercard"></use></svg></li>
+          </ul>
+        {% endunless %}
+        <div>
+          <small>Derechos de Autor &copy; {{ 'now' | date: "%Y" }},  fisiotleta.</small>
+        </div>
+        <div>
+          <a href="mailto:contacto@snavarro.mx"><small>Desarrollo Web snavarro.mx</small></a>
+        </div>
       </div>
 </footer>
 {% include 'snm-popup' with true %}

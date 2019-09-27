@@ -20,7 +20,8 @@
 @import './core/responsive-tables';
 @import './core/rte';
 @import './core/typography';
-@import './core/popup';
+@import './core/popups';
+@import './core/product-grid';
 
 // Components
 @import './components/buttons';
@@ -28,6 +29,7 @@
 @import './components/icons';
 @import './components/placeholders';
 @import './components/responsive-images';
+@import './components/fisio-widget';
 
 // Sections
 @import './sections/blog-posts';
@@ -35,10 +37,12 @@
 @import './sections/featured-collection';
 @import './sections/image-with-text';
 @import './sections/tres-imagenes';
+@import './sections/footer';
+@import './sections/header';
+@import './sections/product';
 
 // Templates
 @import './templates/gift_card';
-@import './templates/product';
 
 // eMovi
 @import './layout/emovi';

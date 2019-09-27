@@ -1,9 +1,13 @@
 #emovi-slider {
 	/* Container */
+	width: 1170px;
+	height: 658px;
 	position: relative;
 	z-index:0;
-	margin-bottom: 20px;
+	margin: 0px auto;
 	box-shadow: 0px 3px 8px -4px #000000;
+	border-radius: 6px;
+	overflow: hidden;
 }
 #ulslider {
 	position:absolute;
@@ -37,7 +41,6 @@
 	height: 100%;
 	width:100%;
 	text-align: center;
-	/**/
 	display:flex;
 	justify-content:center;
 	align-items:center;
@@ -95,9 +98,10 @@ span[id^="slideimg"] {
 	color: rgba(0,0,0,0.75);
 	text-shadow: none;
 }
-#slideimg1 {background-image: url('{{ "vallas.jpg" | file_img_url: "1920x1080" }}');}
-#slideimg2 {background-image: url('{{ "patrullas.jpg" | file_img_url: "1920x1080" }}');}
-#slideimg3 {background-image: url('{{ "volley002-72-0.jpg" | file_img_url: "1920x1080" }}');}
+#slideimg1 {background-image: url('{{ "CorreaRommyOptim.jpg" | file_img_url: "1920x1080" }}');}
+#slideimg2 {background-image: url('{{ "DiscosBalanceOptim.jpg" | file_img_url: "1920x1080" }}');}
+#slideimg3 {background-image: url('{{ "PelotaRommyOptim.jpg" | file_img_url: "1920x1080" }}');}
+#slideimg4 {background-image: url('{{ "PushupsOptim.jpg" | file_img_url: "1920x1080" }}');}
 #slidermenu {
 	z-index:2;
 	position: absolute;
@@ -183,6 +187,12 @@ span[id^="slideimg"] {
     transform: translateZ(0) scale(1);
 }
 @media screen and (max-width: 767px) {
+	#emovi-slider {
+		/* Container */
+		width: 100%;
+		height: 56hv;
+		margin: 20px;
+	}
 	.slidecapt {
 		font-size: 20px;
 	}

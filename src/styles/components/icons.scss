@@ -1,8 +1,8 @@
 .icon {
   display: inline-block;
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   fill: currentColor;
 
   .no-svg & {
@@ -49,4 +49,12 @@ symbol {
 .payment-icons {
   user-select: none;
   cursor: default;
+}
+
+.snm-icon {
+  height:30px;
+  margin: auto;
+  fill: currentColor;
+  stroke:currentColor;
+  vertical-align: middle;
 }

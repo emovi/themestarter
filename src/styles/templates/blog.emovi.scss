@@ -1,0 +1,41 @@
+#blog-emovi {
+	color:#FFFFFF;
+
+	.blogcontainer {
+		max-width: 1170px;
+		margin:auto;
+		padding:30px;
+		display:grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 30px;
+	}
+	.postcontainer {
+		box-shadow: var(--shadow-bottom-black);
+		border-radius: 3px;
+		background-color: #ffffff;
+		color: #222;
+		padding-bottom: 20px;
+	}
+	.post_tit {
+		text-align: center;
+		background-color:var(--color-fisio-azul);
+		margin:0;
+		padding:1em 0px;
+
+		a {
+			color: var(--color-fisio-gris-claro);
+			font-weight: 600;
+			text-decoration: none;
+		}
+	}
+	.post_resumen {
+		padding:10px;
+		text-align: justify;
+	}
+	.post_leermas {
+		padding: 10px;
+		font-weight: 600;
+		text-decoration: none;
+		color:var(--color-fisio-azul);
+	}
+}

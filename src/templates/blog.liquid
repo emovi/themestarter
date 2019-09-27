@@ -1,5 +1,5 @@
 {% comment %}
-  En theme.liquid se asigna id=legasi-blog al body del documento.
+  En theme.liquid se asigna id="blog" al body del documento.
   Usamos eso para direccionar CSS selectors
 {% endcomment%}
 {% paginate blog.articles by 6 %}
@@ -12,22 +12,24 @@
 
   <h1 class="tit_full">{{ blog_title }}</h1>
 
-  {% if blog.all_tags.size > 0 %}
-    <h2>{{ 'blogs.general.categories' | t }}</h2>
+  {%- comment -%} Uncomment si quiero mostrar un submenú con los tags del Blog 
+          {% if blog.all_tags.size > 0 %}
+            <h2>Tags presentes en {{ blog_title }}</h2>
 
-    <ul>
-      {% for tag in blog.all_tags %}
+            <ul>
+              {% for tag in blog.all_tags %}
 
-        {% if current_tags contains tag %}
-          <li>{{ tag }}</li>
-        {% else %}
-          <li>{{ tag | link_to_tag: tag }}</li>
-        {% endif %}
+                {% if current_tags contains tag %}
+                  <li>{{ tag }}</li>
+                {% else %}
+                  <li>{{ tag | link_to_tag: tag }}</li>
+                {% endif %}
 
-      {% endfor %}
-    </ul>
-  {% endif %}
-
+              {% endfor %}
+            </ul>
+          {% endif %}
+  {%- endcomment -%}
+  
   <div class="blogcontainer">
     {% comment %} Article Previews, cada loop es un artículo del Blog {% endcomment %}
     {% for article in blog.articles %}

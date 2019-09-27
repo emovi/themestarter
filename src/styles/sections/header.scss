@@ -1,0 +1,221 @@
+#shopify-section-header > section {
+	width: 100%;
+}
+#barra-anuncios {
+	display: block;
+	position: relative;
+	color:#ffffff;
+	text-shadow: 1px 1px 3px #000;
+	background-color: rgba(0, 196, 255, 0.45);
+	/*background-color: rgba(255, 255, 255, 0.25);*/
+	text-align: center;
+	text-decoration: none;
+	font-weight: 400;
+	padding: 10px 30px;
+	margin: 0;
+}
+#barra-anuncios a {
+	color:#ffffff;
+}
+#emovi-header {
+	width:100%;
+	display: flex;
+	color: #fff;
+	justify-content: space-around;
+	align-items: stretch;
+}
+#emovi-header > h1, #emovi-header > .h1 {
+	margin: 0;
+	flex: none;
+}
+#emovi-header > a{
+	flex:1;
+}
+#menuwrap {
+	/*border:solid 1px #00ff00;*/
+	/*border-right: solid 1px #ff0000;*/
+	/*color:#2F9279;*/
+	/*Flex como Elemento*/
+	flex:1;
+	/*Flex como Contenedor*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0px 10px;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 2px #000;
+	font-weight: 400;
+}
+#menulist {
+	margin:0;
+	padding:0;
+	list-style: none;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: stretch;
+}
+#menulist li {
+	/*border: 1px solid #fff;*/
+	position:relative;
+	line-height: 1.5;
+	padding:5px;
+	margin: 0;
+	font-size: 18px;
+	color:#F7F6F7;
+	white-space: nowrap;
+	flex:1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#menulist>li::after {
+	/*Barra inferior efecto hover posición inicial*/
+	position:absolute;
+	bottom:0;
+	left:0;
+	height:0;
+	width:100%;
+	background-color: #005AB4;
+	content: "";
+	transition: all 0.25s ease;
+}
+#menulist>li:hover::after {
+	/*Barra inferior efecto hover, posición en hover activo*/
+	bottom:-3px;
+	height:3px;
+}
+#menulist li a {
+	text-decoration:none;
+	color:#F7F6F7;
+}
+#menulist li:hover a {
+	/*text-shadow: 1px 1px 1px #000;*/
+	color:#BEBEBE;
+}
+#menulist .active {
+	border-bottom: 1px solid #2F9279;
+}
+/***** Drop Down Menu*/
+.dd-nivel1 svg {
+	fill:currentColor;
+}
+.dd-nivel2 {
+	/******	Sección Dropdown Nivel-2	*/
+	display: none;
+	position: absolute;
+	top: calc(100% + 3px);
+	height:0px;
+	left: 0px;
+	padding: 0;
+	margin: 0;
+	min-width: 100%;
+	list-style: none;
+	white-space: nowrap;
+	background-color: rgba(63, 63, 63, 0.95);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	z-index: 210;
+	transition: height 1s ease-out;
+}
+#menulist>li:hover>ul.dd-nivel2 {
+	/*Despliega submenu nivel-2*/
+	display: block;
+	height:auto;
+}
+ul.dd-nivel2>li {
+	/*Cada una de las opciones de los subemús dropdown*/
+	position: relative;
+	padding: 15px 10px;
+	z-index: 210;
+}
+ul.dd-nivel2>li::after {
+	/*****	Efecto Hover opciones menu nivel-2	*/
+	/*Cubierta efecto hover posición inicial*/
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	height:0;
+	width:100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	content: "";
+	transition: all 0.25s ease-out;
+	z-index: -1;						/*Debe estar atrás del li, que tiene z-index auto*/
+}
+ul.dd-nivel2>li:hover::after {
+	/*Cubierta efecto hover, posición en hover activo*/
+	/*bottom:5%;*/
+	height:100%;
+}
+ul.dd-nivel2>li:hover h3 {
+	/*Cada una de las opciones de los subemús dropdown*/
+	color:#E8C331 !important;
+}
+#menulist h3 {
+	/*Estilos del texto de las opciones nivel-2 de los submenús del menuppal*/
+	font-size: 16px;
+	line-height: 1;
+	margin:0;
+	color: #F8F29A;
+	transition: all 200ms linear;
+}
+#menucollapsedsvg {
+	/***** menu mobile*/
+	flex: none;
+	width:100px;
+	height:100px;
+	cursor: pointer;
+	display: none;
+	fill:#FFD63A;
+}
+#fisio-users {
+	width:80px;
+	height:80px;
+}
+.icon-cart {
+	width:60px;
+	height:60px;
+	transform-origin: bottom center;
+	transform: scale(1);
+	margin:0px 5px;
+	fill:#CFD1E2;
+}
+.icon-cart:hover {
+	fill:#A8CC42;
+}
+@media screen and (max-width: 767px) {
+	#menulist {
+		position:fixed;
+		top:97px;
+		left:0;
+		width:100%;
+		background-color:rgba(0, 0, 0, 0.75);
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: stretch;
+		transform: translate(-100%);
+		transition: transform 1s ease-out;
+	}
+	#menulist>li, #menulist.mobile>li {
+		margin: 10px auto;
+		min-width: 200px;
+		text-align: center;
+	}
+	#menulist.mobile {
+		transform: translate(0%);
+	}
+	#menucollapsedsvg {
+		display: block;
+		width:80px;
+		height:80px;
+	}
+	#emovi-header>h1 {
+		flex: none;
+		position: relative;
+		width: 80px;
+	}
+	#svgintro {
+		width: 80px;
+		height: 80px;
+	}
+}

@@ -1,32 +1,44 @@
-#page-faqs main {
-	padding: 0 20px;
-}
-#page-faqs .tit_full {
-	margin: 0px;
-}
+#page-faqs #MainContent {
+	background-attachment: fixed;
+} 
 #page-faqs .faqscontainer {
-	max-width: 700px;
+	max-width: 1170px;
 	margin:auto;
+	padding:30px;
+	background-color: rgba(0,0,0, 0.75);
+	color:#FFFFFF;
+	text-shadow: 1px 1px 2px #000;
 }
 #page-faqs h2 {
-	margin:20px 0 5px 0;
-	border-bottom: solid 2px #17222D;
+	font-size: 1.5em;
+	padding:20px;
+	border-radius: 6px;
+	background-color: var(--color-fisio-verde);
+	color: #000000;
+	text-align: center;
+	text-shadow: none;
+	text-transform: none;
 }
-#page-faqs p {
-	margin:0;
+#page-faqs .pregunta {
+	font-size: 1.3em;
+	width:50%;
+	background-color: rgba(4, 123, 216, 0.90);
+	border-radius: 6px;
+	padding:10px 10px 0px 10px;
 	text-align: justify;
+	border-radius: 6px 6px 0 0;
 }
-#page-faqs .last {
-	height:30px;
+#page-faqs .respuesta {
+	padding: 20px;
+	margin-bottom: 20px;
+	background-color: rgba(4, 123, 216, 0.90);
+	text-align: justify;
+	color:#FFFFFF;
+	text-shadow: 1px 1px 2px #000;
 }
-@media screen and (max-width: 413px) {
-	#page-faqs main {
-		padding: 0 10px;
-	}
-	#page-faqs .tit_full {
-		padding: 0.5em;
-	}
-	#page-faqs h2 {
-		font-size: 1.2em;
-	}
+#page-faqs .faqscontainer a {
+	color:var(--color-fisio-kinesio);
+	text-decoration: none;
+	text-shadow: none;
+	font-weight: 600;
 }

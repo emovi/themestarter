@@ -11,13 +11,13 @@
 	position:fixed;
 	top:0;
 	left:0;
-	z-index:10;
+	z-index:100;
 	height:auto;
 	width:100%;
 	display: flex;
 	padding:5px;
 	margin:0px;
-	box-shadow: 0px 3px 8px -4px #000000;
+	box-shadow: var(--shadow-bottom-black);
     background:linear-gradient(
 			      to right,
 			      rgba(0, 0, 0, 0.45), 
@@ -38,4 +38,11 @@ section.image-with-text {
 	background-repeat:no-repeat;
 	background-size: cover;
 	background-position: center center;
+}
+#page-contact #MainContent,
+#page-faqs #MainContent,
+.fisio-svgbck {
+	background: 
+		url({{ 'banner-fisio.svg' | asset_url }}),
+		radial-gradient(circle at 50% 50%, #bfe94c 0%, #3a4617 100%);
 }
